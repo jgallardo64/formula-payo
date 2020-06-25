@@ -1,0 +1,98 @@
+.header-carrera {
+    background: #323232;
+    margin-top: -20px;
+
+    .nom-circuito {
+        padding: 15px 0;
+
+        .tit-circuito {
+            font-size: 24px;
+            font-family: 'customFont-bold';
+            color: #fff;
+        }
+
+        .subtit-circuito {
+            font-size: 18px;
+            font-family: 'customFont';
+            color: #fff;
+        }
+
+        .bandera-circuito {
+            width: 40px;
+            height: 40px;
+            border: 1px solid #fff;
+            overflow: hidden;
+            border-radius: 50%;
+            display: block;
+            float: left;
+            margin-left: 20px;
+
+            img {
+                width: auto;
+                height: 40px;
+                margin-left: -10px;
+            }
+        }
+    }
+}
+
+.container {
+    padding-right: 10px;
+    padding-left: 10px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 992px;
+    min-width: 320px;
+}
+
+.row {
+    margin-right: -10px;
+    margin-left: -10px;
+}
+
+.s-left {
+    float: left;
+}
+
+.next-gp {
+    margin-top: 1px;
+    font-size: 16px;
+    font-family: 'customFont';
+    color: #111;
+    min-height: 40px;
+    height: auto;
+    position: relative;
+    padding: 10px;
+    margin-bottom: 0;
+}
+
+.mat-card {
+    padding: 0;
+    box-shadow: 0 0px 20px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+.separator {
+    background: #f2f2f2;
+    color: #666;
+    padding: 10px 12px;
+    font-size: 12px;
+    text-transform: uppercase;
+    width: 100%;
+    height: 40px;
+    font-family: 'customFont';
+}
+
+.cont-grafico-leyenda {
+    background: #EFECE3;
+    padding: 10px;
+    margin: 10px;
+    font-size: 12px;
+    color: #464646;
+    font-family: 'customFont';
+}
+
+.table th,td {
+    padding: 0.20rem;
+    font-family: 'customFont';
+    font-size: 15px;
+}

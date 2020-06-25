@@ -1,0 +1,19 @@
+{
+  "hosting": [
+    {
+      "target": "formula-payo-web",
+      "public": "dist/formula-payo-web",
+      "ignore": [
+        "firebase.json",
+        "**/.*",
+        "**/node_modules/**"
+      ],
+      "rewrites": [
+        {
+          "source": "**",
+          "destination": "/index.html"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,30 @@
+<div class="container mb-4">
+    <div class="row">
+        <div class="col-12">
+            <mat-card class="gp-card" [routerLink]="['/schedule/' + nextGp?.id]">
+                <h2 class="next-gp">Próximo Gran Premio</h2>
+                <div class="{{nextGp?.id}}">
+                    <p class="cal-country">{{nextGp?.data?.name}}<span class="cal-title-date">{{nextGp?.data?.date}}</span></p>
+                    <p class="cal-title">{{nextGp?.data?.circuit}}</p>
+                </div>
+            </mat-card>
+        </div>
+    </div>
+</div>
+
+
+<div class="container">
+    <div class="row">
+        <div class="calendar-gp col-md-4 col-sm-6 col-xs-12 mb-4" *ngFor="let item of calendar">
+            <div [routerLink]="[item?.id]">
+                <img [src]="'../../../assets/images/grand-prix-thumbnails/' + item?.id + '.jpg'" width="
+                100%">
+            </div>
+            <div class="data-calendar-info">
+                <p class="data-calendar-first-info">{{item?.data?.country}} <span class="data-calendar-second-info">{{item?.data?.date}}</span></p>
+                <p class="data-calendar-main-name">{{item?.data?.circuit}}</p>
+                <p class="data-calendar-specs-info">{{item?.data?.length}} <span class="data-calendar-specs-type-info">METROS</span>{{item?.data?.laps}} <span class="data-calendar-specs-type-info">VUELTAS</span></p>
+            </div>
+        </div>
+    </div>
+</div>

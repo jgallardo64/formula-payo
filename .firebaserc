@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "formula-payo-web": {
+      "hosting": {
+        "formula-payo-web": [
+          "formula-payo-web"
+        ]
+      }
+    }
+  }
+}

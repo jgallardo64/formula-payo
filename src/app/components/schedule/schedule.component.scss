@@ -1,0 +1,266 @@
+.data-calendar-info {
+    background: #333;
+    padding: 10px;
+    position: relative;
+}
+
+.data-calendar-first-info {
+    margin-bottom: 3px;
+    font-family: 'customFont';
+    font-size: 14px;
+    text-transform: uppercase;
+    color: #FFF;
+    position: relative;
+    z-index: 3;
+    font-weight: bold;
+}
+
+.data-calendar-second-info {
+    color: #999;
+    position: relative;
+    z-index: 3;
+    font-weight: normal;
+    clear: both;
+}
+
+.data-calendar-main-name {
+    color: #FFB713;
+    font-family: 'customFont-bold';
+    text-transform: uppercase;
+    font-size: 18px;
+    -webkit-transition: color 1s;
+    transition: color 1s;
+    position: relative;
+    z-index: 3;
+    margin-bottom: 5px;
+}
+
+.data-calendar-specs-info {
+    font-family: 'customFont';
+    font-size: 18px;
+    color: #FFF;
+    position: relative;
+    z-index: 3;
+}
+
+.data-calendar-specs-type-info {
+    color: #666;
+    font-size: 13px;
+    margin-right: 10px;
+}
+
+.next-gp {
+    margin-top: 1px;
+    font-size: 16px;
+    font-family: 'customFont';
+    color: #111;
+    min-height: 40px;
+    height: auto;
+    position: relative;
+    padding: 10px;
+    margin-bottom: 0;
+}
+
+.mat-card {
+    padding: 0;
+    box-shadow: 0 0px 20px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+.calendar-gp, .mat-card:active {
+    outline: none;
+}
+
+.image-container {
+    background: url(https://as01.epimg.net/img/motor/formula_1/2019/fotos_circuitos/981x200/red_bull_ring.jpg);
+    height: 200px;
+}
+
+
+.cal-country {
+    font-size: 18px;
+    font-family: 'customFont';
+    color: #FFF;
+    margin-left: 50px;
+    // margin-top: -72px;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 40px;
+    z-index: 10;
+
+    .cal-title-date {
+        color: #BBB;
+        margin-left: 5px;
+    }
+}
+
+.cal-title {
+    font-size: 30px;
+    font-family: 'customFont-bold';
+    color: #FFB713;
+    margin-left: 50px;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 0;
+    z-index: 9;
+}
+
+.calendar-gp, .gp-card:hover {
+    cursor: pointer;
+}
+
+.gp-card:after {
+    content: " ";
+    height: 150px;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: rgba(0,0,0,0);
+    background: -moz-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,0.9) 100%);
+    background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(0,0,0,0)), color-stop(35%, rgba(0,0,0,0)), color-stop(100%, rgba(0,0,0,0.9)));
+    background: -webkit-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,0.9) 100%);
+    background: -o-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,0.9) 100%);
+    background: -ms-linear-gradient(top, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,0.9) 100%);
+    background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(0,0,0,0) 35%, rgba(0,0,0,0.9) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
+}
+
+.australia {
+    background: url(../../../assets/images/circuit-background/australia.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.bahrain {
+    background: url(../../../assets/images/circuit-background/bahrain.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.china {
+    background: url(../../../assets/images/circuit-background/china.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.azerbaijan {
+    background: url(../../../assets/images/circuit-background/azerbaijan.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.spain {
+    background: url(../../../assets/images/circuit-background/spain.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.monaco {
+    background: url(../../../assets/images/circuit-background/monaco.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.canada {
+    background: url(../../../assets/images/circuit-background/bahrain.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.france {
+    background: url(../../../assets/images/circuit-background/france.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.austria {
+    background: url(../../../assets/images/circuit-background/austria.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.great-britain {
+    background: url(../../../assets/images/circuit-background/great-britain.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.germany {
+    background: url(../../../assets/images/circuit-background/germany.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.hungary {
+    background: url(../../../assets/images/circuit-background/hungary.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.belgium {
+    background: url(../../../assets/images/circuit-background/belgium.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.italy {
+    background: url(../../../assets/images/circuit-background/italy.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.singapore {
+    background: url(../../../assets/images/circuit-background/singapore.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.russia {
+    background: url(../../../assets/images/circuit-background/russia.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.japan {
+    background: url(../../../assets/images/circuit-background/japan.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.mexico {
+    background: url(../../../assets/images/circuit-background/mexico.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.usa {
+    background: url(../../../assets/images/circuit-background/usa.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.brazil {
+    background: url(../../../assets/images/circuit-background/brazil.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.abu-dhabi {
+    background: url(../../../assets/images/circuit-background/abu-dhabi.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+@media (max-width: 767px) {
+    .cal-title {
+        font-size: 30px;
+        color: #FFB713;
+        margin-left: 10px;
+    }
+
+    .cal-country {
+        margin-left: 10px;
+        font-size: 12px;
+        margin-top: -42px;
+    }
+}

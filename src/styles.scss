@@ -1,1 +1,29 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import "~bootstrap/dist/css/bootstrap.css";
+
+@font-face {
+    font-family: 'customFont';
+    src: url(assets/fonts/Formula1-Regular.ttf);
+}
+
+@font-face {
+    font-family: 'customFont-bold';
+    src: url(assets/fonts/Formula1-Bold.ttf);
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-button, .mat-menu-item {
+    font-family: 'customFont';
+    }
+    
+    .mat-toolbar.mat-primary {
+        background: #e10600;
+        color: #fff;
+    }
+
+    .mat-tab-label {
+        font-family: 'customFont' !important;
+    }

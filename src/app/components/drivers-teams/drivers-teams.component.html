@@ -1,0 +1,39 @@
+<div class="container">
+  <div class="row" *ngFor="let team of teams">
+    <div class="team col-12 col-md-6 mb-4">
+      <span class="team-info-name">
+        <img
+          [src]="'../../../assets/images/team-logos/' + team?.id + '.jpg'"
+          style="max-width: 125px; max-height: 60px;"
+        />
+        {{team?.data?.name}}</span
+      >
+      <img
+      [src]="'../../../assets/images/cars/' + team?.id + '.png'"
+        width="100%"
+      />
+    </div>
+    <div class="col-12 col-md-6 mb-4">
+      <div class="row">
+        <div class="col-6" *ngFor="let driver of team?.data?.drivers">
+          <div style="border: 1px solid #ddd;">
+            <img
+              src="https://as01.epimg.net/img/comunes/fotos/fichas/deportistas/l/lew/large/24341.png"
+              width="100%"
+            />
+            <div class="rider-name-box">{{driver}}</div>
+          </div>
+        </div>
+        <!-- <div class="col-6">
+          <div style="border: 1px solid #ddd;">
+            <img
+              src="https://as01.epimg.net/img/comunes/fotos/fichas/deportistas/v/val/large/24352.png"
+              width="100%"
+            />
+            <div class="rider-name-box">KASUGA</div>
+          </div>
+        </div> -->
+      </div>
+    </div>
+  </div>
+</div>

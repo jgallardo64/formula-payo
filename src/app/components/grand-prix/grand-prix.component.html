@@ -1,0 +1,199 @@
+<section class="header-carrera">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 col-xs-12">
+        <div class="nom-circuito cf">
+          <div class="s-left">
+            <h1 class="tit-circuito">{{grandPrix?.name}}</h1>
+            <p class="subtit-circuito">{{grandPrix?.circuit}}</p>
+          </div>
+          <span class="bandera-circuito"
+            ><img
+              [src]="'../../../assets/images/flags/' + gpId + '.svg'"
+              alt="gpName"
+          /></span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <mat-tab-group mat-align-tabs="center">
+        <mat-tab>
+          <ng-template mat-tab-label>
+            <img
+              class="mr-1"
+              src="../../../assets/images/flag.svg"
+              width="24px"
+            />
+            Circuito
+          </ng-template>
+          <div class="gp-card p-2" [routerLink]="['/schedule/austria']">
+            <h2 class="next-gp">Circuito de {{grandPrix?.circuit}}</h2>
+            <img
+              [src]="'../../../assets/images/circuit-background/' + gpId + '.jpg'"
+              width="100%"
+            />
+            <div class="separator">
+              EL CIRCUITO
+            </div>
+            <div class="row">
+              <div class="col-lg-7 col-md-12 pt-4">
+                <img
+                [src]="'../../../assets/images/tracks/' + gpId + '.svg'"
+                  width="100%"
+                />
+              </div>
+              <div class="col-lg-5 col-md-12">
+                <div class="cont-grafico-leyenda">
+                  <div class="w-100 mb-2">
+                    <img
+                      class="mr-1"
+                      src="../../../assets/images/meta.png"
+                      width="19px"
+                    />
+                    Línea de meta
+                  </div>
+                  <div class="w-100 mb-2">
+                    <img
+                      class="mr-1"
+                      src="../../../assets/images/curvas.png"
+                      width="20px"
+                    />
+                    Curvas
+                  </div>
+                  <div class="w-100 mb-2">
+                    <img
+                      class="mr-1"
+                      src="../../../assets/images/sector.png"
+                      width="30px"
+                    />
+                    Sector cronometrado
+                  </div>
+                  <div class="w-100 mb-2">
+                    <img
+                      class="mr-1"
+                      src="../../../assets/images/gear.png"
+                      width="25px"
+                    />
+                    Cambio
+                  </div>
+                  <div class="w-100 mb-2">
+                    <img
+                      class="mr-1"
+                      src="../../../assets/images/speed.png"
+                      width="40px"
+                    />
+                    Km/h
+                  </div>
+                  <div class="w-100 mb-2">
+                    <img
+                      class="mr-1"
+                      src="../../../assets/images/drs-zone.png"
+                      width="20px"
+                    />
+                    Zona DRS
+                  </div>
+                  <div class="w-100 mb-2">
+                    <img
+                      class="mr-1"
+                      src="../../../assets/images/drs-detection.png"
+                      width="20px"
+                    />
+                    Detección DRS
+                  </div>
+                  <div class="w-100 mb-2">
+                    <img
+                      class="mr-1"
+                      src="../../../assets/images/drs-open.png"
+                      width="20px"
+                    />
+                    Apertura DRS
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </mat-tab>
+
+        <mat-tab *ngIf="grandPrix?.qualifying?.length > 0">
+          <div class="pt-4">
+          <ng-template mat-tab-label>
+            <img
+              class="mr-1"
+              src="../../../assets/images/timer.svg"
+              width="24px"
+            />
+            Clasificación
+          </ng-template>
+
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Pos</th>
+                <th scope="col">Piloto</th>
+                <th scope="col">Escudería</th>
+                <th scope="col">Neumático</th>
+                <th scope="col">Tiempo</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let qualify of grandPrix?.qualifying; index as i">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ qualify.driver }}</td>
+                <td>
+                  <img [src]="'../../../assets/images/cars/' + qualify.team + '.png'" class="mr-2" style="width: 90px;" />
+                </td>
+                <td>
+                  <img [src]="'../../../assets/images/tyres/' + qualify.tyre + '.png'" width="20px"> 
+                </td>
+                <td>{{ qualify.time }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        </mat-tab>
+
+        <mat-tab *ngIf="grandPrix?.race?.length > 0">
+          <ng-template mat-tab-label>
+            <img
+              class="mr-1"
+              src="../../../assets/images/car-steering-wheel.svg"
+              width="24px"
+            />
+            Carrera
+          </ng-template>
+          <table class="table table-striped">
+            <thead>
+              <tr>
+                <th scope="col">Pos</th>
+                <th scope="col">Piloto</th>
+                <th scope="col">Escudería</th>
+                <th scope="col">Tiempo</th>
+                <th scope="col">Paradas</th>
+                <th scope="col">Puntos</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let driver of race; index as i">
+                <th scope="row">{{ i + 1 }}</th>
+                <td>{{ driver.driver }}</td>
+                <td>
+                  <img [src]="driver.team" class="mr-2" style="width: 90px;" />
+                </td>
+                <td>
+                  {{driver?.time}}
+                </td>
+                <td>{{ driver?.stops }}</td>
+                <td>{{driver?.points}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </mat-tab>
+      </mat-tab-group>
+    </div>
+  </div>
+</div>

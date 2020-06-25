@@ -1,0 +1,171 @@
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <th class="pos-col" scope="col"></th>
+            <th class="driver-col" scope="col">Piloto</th>
+            <th class="pts-col" scope="col">Pts</th>
+            <th class="gp-col" scope="col" [routerLink]="['/schedule/austria']">
+                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/aut.png"><br>
+                AUT
+            </th>
+            <th class="gp-col" scope="col" [routerLink]="['/schedule/hungary']">
+                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/hun.png"><br>
+                HUN
+            </th>
+            <th class="gp-col" scope="col" [routerLink]="['/schedule/australia']">
+                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/aus.png"><br>
+                AUS
+            </th>
+            <th class="gp-col" scope="col" [routerLink]="['/schedule/great-britain']">
+                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/gbr.png"><br>
+                GBR
+            </th>
+            <th class="gp-col" scope="col" [routerLink]="['/schedule/bahrain']">
+                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/brn.png"><br>
+                BRN
+            </th>
+            <th class="gp-col" scope="col" [routerLink]="['/schedule/spain']">
+                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/esp.png"><br>
+                ESP
+            </th>
+            <th class="gp-col" scope="col" [routerLink]="['/schedule/china']">
+                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/chn.png"><br>
+                CHN
+            </th>
+            <th class="gp-col" scope="col" [routerLink]="['/schedule/belgium']">
+                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/bel.png"><br>
+                BEL
+            </th>
+            <th class="gp-col" scope="col" [routerLink]="['/schedule/italy']">
+                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/ita.png"><br>
+                ITA
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let driver of driverStandings; index as i">
+          <th scope="row">{{ i + 1 }}</th>
+          <td class="driver-name">{{driver?.data?.driver}}</td>
+          <td class="points-col">{{driver?.data?.points}}</td>
+          <td>
+            <span [ngClass]="{
+              'first': driver?.data?.AUT?.position === 1,
+              'second': driver?.data?.AUT?.position === 2,
+              'third': driver?.data?.AUT?.position === 3,
+              'points': driver?.data?.AUT?.position > 3 && driver?.data?.AUT?.position <= 10,
+              'tenth': driver?.data?.AUT?.position === 10,
+              'no-points': driver?.data?.AUT?.position > 10,
+              'dnf': driver?.data?.AUT?.dnf === true
+            }">
+            {{driver?.data?.AUT?.position}}
+          </span>
+        </td>
+        <td>
+            <span [ngClass]="{
+              'first': driver?.data?.HUN?.position === 1,
+              'second': driver?.data?.HUN?.position === 2,
+              'third': driver?.data?.HUN?.position === 3,
+              'points': driver?.data?.HUN?.position > 3 && driver?.data?.HUN?.position <= 10,
+              'tenth': driver?.data?.HUN?.position === 10,
+              'no-points': driver?.data?.HUN?.position > 10,
+              'dnf': driver?.data?.HUN?.dnf === true
+            }">
+            {{driver?.data?.HUN?.position}}
+          </span>
+        </td>
+        <td>
+            <span [ngClass]="{
+              'first': driver?.data?.AUS?.position === 1,
+              'second': driver?.data?.AUS?.position === 2,
+              'third': driver?.data?.AUS?.position === 3,
+              'points': driver?.data?.AUS?.position > 3 && driver?.data?.AUS?.position <= 10,
+              'tenth': driver?.data?.AUS?.position === 10,
+              'no-points': driver?.data?.AUS?.position > 10,
+              'dnf': driver?.data?.AUS?.position > 10
+            }">
+            {{driver?.data?.AUS?.position}}
+          </span>
+        </td>
+        <td>
+            <span [ngClass]="{
+              'first': driver?.data?.GBR?.position === 1,
+              'second': driver?.data?.GBR?.position === 2,
+              'third': driver?.data?.GBR?.position === 3,
+              'points': driver?.data?.GBR?.position > 3 && driver?.data?.GBR?.position <= 10,
+              'tenth': driver?.data?.GBR?.position === 10,
+              'no-points': driver?.data?.GBR?.position > 10,
+              'dnf': driver?.data?.GBR?.dnf === true
+            }">
+            {{driver?.data?.GBR?.position}}
+          </span>
+        </td>
+        <td>
+            <span [ngClass]="{
+              'first': driver?.data?.BRN?.position === 1,
+              'second': driver?.data?.BRN?.position === 2,
+              'third': driver?.data?.BRN?.position === 3,
+              'points': driver?.data?.BRN?.position > 3 && driver?.data?.BRN?.position <= 10,
+              'tenth': driver?.data?.BRN?.position === 10,
+              'no-points': driver?.data?.BRN?.position > 10,
+              'dnf': driver?.data?.BRN?.dnf === true
+            }">
+            {{driver?.data?.BRN?.position}}
+          </span>
+        </td>
+        <td>
+            <span [ngClass]="{
+              'first': driver?.data?.ESP?.position === 1,
+              'second': driver?.data?.ESP?.position === 2,
+              'third': driver?.data?.ESP?.position === 3,
+              'points': driver?.data?.ESP?.position > 3 && driver?.data?.ESP?.position <= 10,
+              'tenth': driver?.data?.ESP?.position === 10,
+              'no-points': driver?.data?.ESP?.position > 10,
+              'dnf': driver?.data?.ESP?.dnf === true
+            }">
+            {{driver?.data?.ESP?.position}}
+          </span>
+        </td>
+        <td>
+            <span [ngClass]="{
+              'first': driver?.data?.CHN?.position === 1,
+              'second': driver?.data?.CHN?.position === 2,
+              'third': driver?.data?.CHN?.position === 3,
+              'points': driver?.data?.CHN?.position > 3 && driver?.data?.CHN?.position <= 10,
+              'tenth': driver?.data?.CHN?.position === 10,
+              'no-points': driver?.data?.CHN?.position > 10,
+              'dnf': driver?.data?.CHN?.dnf === true
+            }">
+            {{driver?.data?.CHN?.position}}
+          </span>
+        </td>
+        <td>
+            <span [ngClass]="{
+              'first': driver?.data?.BEL?.position === 1,
+              'second': driver?.data?.BEL?.position === 2,
+              'third': driver?.data?.BEL?.position === 3,
+              'points': driver?.data?.BEL?.position > 3 && driver?.data?.BEL?.position <= 10,
+              'tenth': driver?.data?.BEL?.position === 10,
+              'no-points': driver?.data?.BEL?.position > 10,
+              'dnf': driver?.data?.BEL?.dnf === true
+            }">
+            {{driver?.data?.BEL?.position}}
+          </span>
+        </td>
+        <td>
+            <span [ngClass]="{
+              'first': driver?.data?.ITA?.position === 1,
+              'second': driver?.data?.ITA?.position === 2,
+              'third': driver?.data?.ITA?.position === 3,
+              'points': driver?.data?.ITA?.position > 3 && driver?.data?.ITA?.position <= 10,
+              'tenth': driver?.data?.ITA?.position === 10,
+              'no-points': driver?.data?.ITA?.position > 10,
+              'dnf': driver?.data?.ITA?.dnf === true
+            }">
+            {{driver?.data?.ITA?.position}}
+          </span>
+        </td>
+        </tr>
+        </tbody>
+      </table>
+</div>
