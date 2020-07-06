@@ -1,22 +1,64 @@
-<mat-toolbar color="primary">
-  <div>
-    <img src="../assets/images/formula-payo-web.png" width="100px" />
-  </div>
-  <span class="menu-spacer mr-4"></span>
-  <div>
-    <button mat-button [routerLink]="'/home'">Inicio</button>
-    <button mat-button [routerLink]="'/drivers-teams'">Escuderías y pilotos</button>
-    <button mat-button [routerLink]="'/standings'">Clasificaciones</button>
-    <!-- <button mat-button [matMenuTriggerFor]="menu">Clasificaciones</button>
-    <mat-menu #menu="matMenu">
-      <button mat-menu-item>Pilotos</button>
-      <button mat-menu-item>Constructores</button>
-    </mat-menu> -->
-    <button mat-button [routerLink]="'/regulation'">Reglamento</button>
-    <button mat-button [routerLink]="'/schedule'">Grandes Premios</button>
-  </div>
-</mat-toolbar>
+<mat-drawer-container class="example-container" autosize [hasBackdrop]="true">
+  <mat-drawer #drawer class="example-sidenav" mode="over" style="top:56px;">
+  	<mat-nav-list>
+      <mat-list-item [routerLink]="['/home']" (click)="drawer.toggle()">Inicio</mat-list-item>
+      <mat-list-item (click)="teamsMenu.openMenu()">
+        <div mat-line #teamsMenu="matMenuTrigger"  [matMenuTriggerFor]="teams">
+          Escuderías y pilotos
+        </div>
+      </mat-list-item>
+      <mat-menu #teams="matMenu">
+        <button mat-menu-item [routerLink]="['/drivers-teams']" (click)="drawer.toggle()">Igualado</button>
+        <button mat-menu-item [routerLink]="['/drivers-teams']" (click)="drawer.toggle()">Realista</button>
+      </mat-menu>
+      <mat-list-item (click)="standingsMenu.openMenu()">
+        <div mat-line #standingsMenu="matMenuTrigger"  [matMenuTriggerFor]="standings">
+          Clasificaciones
+        </div>
+      </mat-list-item>
+      <mat-menu #standings="matMenu">
+        <button mat-menu-item [routerLink]="['/standings']" (click)="drawer.toggle()">Igualado</button>
+        <button mat-menu-item [routerLink]="['/standings']" (click)="drawer.toggle()">Realista</button>
+      </mat-menu>
+    </mat-nav-list>
+  </mat-drawer>
 
-<div style="margin-top: 80px;">
-  <router-outlet></router-outlet>
-</div>
+  <div class="example-sidenav-content">
+    <mat-toolbar color="primary">
+      <div class="mobile">
+        <button mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button>
+        <span class="menu-spacer mr-2"></span>
+      </div>
+      <div>
+        <img
+          src="../assets/images/formula-payo-web.png"
+          width="100px"
+          [routerLink]="['/home']"
+        />
+      </div>
+      <span class="menu-spacer mr-4"></span>
+      <div class="desktop">
+        <button mat-button [matMenuTriggerFor]="pilotos">
+          Escuderías y pilotos
+        </button>
+        <mat-menu #pilotos="matMenu">
+          <button mat-menu-item [routerLink]="'/drivers-teams'">Igualado</button>
+          <button mat-menu-item>Realista</button>
+        </mat-menu>
+        <button mat-button [matMenuTriggerFor]="clasificaciones">
+          Clasificaciones
+        </button>
+        <mat-menu #clasificaciones="matMenu">
+          <button mat-menu-item [routerLink]="'/standings'">Igualado</button>
+          <button mat-menu-item>Realista</button>
+        </mat-menu>
+        <button mat-button [routerLink]="'/regulation'">Reglamento</button>
+        <button mat-button [routerLink]="'/schedule'">Grandes Premios</button>
+      </div>
+    </mat-toolbar>
+
+    <div style="margin-top: 76px;">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-drawer-container>

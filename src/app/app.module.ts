@@ -15,7 +15,11 @@ import {
   MatListModule,
   MatButtonModule,
   MatCardModule,
-  MatTabsModule
+  MatTabsModule,
+  MatTableModule,
+  MatSidenavModule,
+  MatFormFieldModule,
+  MatSelectModule
 } from '@angular/material';
 import { GrandPrixComponent } from './components/grand-prix/grand-prix.component';
 
@@ -24,6 +28,12 @@ import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { DriversTeamsComponent } from './components/drivers-teams/drivers-teams.component';
+import { ReactiveFormsModule } from '@angular/forms';
+import { CountdownModule, CountdownGlobalConfig } from 'ngx-countdown';
+
+function countdownConfigFactory(): CountdownGlobalConfig {
+  return { format: 'mm:ss' };
+}
 
 @NgModule({
   declarations: [
@@ -37,21 +47,30 @@ import { DriversTeamsComponent } from './components/drivers-teams/drivers-teams.
   ],
   imports: [
     BrowserModule,
+    CountdownModule,
+    ReactiveFormsModule,
     MatToolbarModule,
     MatMenuModule,
+    MatTableModule,
+    MatFormFieldModule,
+    MatSelectModule,
     MatIconModule,
+    MatSidenavModule,
     MatTabsModule,
     MatIconModule,
     MatListModule,
     MatCardModule,
     MatButtonModule,
+    CountdownModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     AngularFireAuthModule,
     AppRoutingModule,
     BrowserAnimationsModule
   ],
-  providers: [],
+  providers: [
+    { provide: CountdownGlobalConfig, useFactory: countdownConfigFactory }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

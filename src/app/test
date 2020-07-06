@@ -1,0 +1,149 @@
+
+<mat-drawer-container class="example-container" autosize [hasBackdrop]="true">
+  <mat-drawer #drawer class="example-sidenav" mode="over">
+    <button mat-button [routerLink]="'/home'" (click)="drawer.toggle()">Inicio</button>
+    <button mat-button [matMenuTriggerFor]="pilotos">
+      Escuderías y pilotos
+    </button>
+    <mat-menu #pilotos="matMenu">
+      <button mat-menu-item [routerLink]="'/standings'">Igualado</button>
+      <button mat-menu-item>Realista</button>
+    </mat-menu>
+  </mat-drawer>
+
+  <div class="example-sidenav-content">
+    <mat-toolbar color="primary">
+      <div class="mobile">
+        <button mat-icon-button (click)="drawer.toggle()"><mat-icon>menu</mat-icon></button>
+        <span class="menu-spacer mr-2"></span>
+      </div>
+      <div>
+        <img
+          src="../assets/images/formula-payo-web.png"
+          width="100px"
+          [routerLink]="['/home']"
+        />
+      </div>
+      <span class="menu-spacer mr-4"></span>
+      <div class="desktop">
+        <!-- <button mat-button [routerLink]="'/home'">Inicio</button> -->
+        <!-- <button mat-button [routerLink]="'/drivers-teams'">
+          Escuderías y pilotos
+        </button> -->
+        <button mat-button [matMenuTriggerFor]="pilotos">
+          Escuderías y pilotos
+        </button>
+        <mat-menu #pilotos="matMenu">
+          <button mat-menu-item [routerLink]="'/standings'">Igualado</button>
+          <button mat-menu-item>Realista</button>
+        </mat-menu>
+        <!-- <button mat-button [routerLink]="'/standings'">Clasificaciones</button> -->
+        <button mat-button [matMenuTriggerFor]="clasificaciones">
+          Clasificaciones
+        </button>
+        <mat-menu #clasificaciones="matMenu">
+          <button mat-menu-item [routerLink]="'/standings'">Igualado</button>
+          <button mat-menu-item>Realista</button>
+        </mat-menu>
+        <button mat-button [routerLink]="'/regulation'">Reglamento</button>
+        <button mat-button [routerLink]="'/schedule'">Grandes Premios</button>
+      </div>
+    </mat-toolbar>
+
+    <div style="margin-top: 80px;">
+      <router-outlet></router-outlet>
+    </div>
+  </div>
+</mat-drawer-container>
+
+
+
+button:focus {
+    outline: none;
+}
+
+img:focus {
+    outline: none;
+}
+
+img:hover {
+    cursor: pointer;
+}
+
+.mobile {
+    display: none;
+}
+
+mat-toolbar {
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+}
+
+.mat-toolbar-single-row {
+    height: 56px;
+}
+
+.mat-drawer {
+    padding: 10px;
+    width: 50%;
+    font-family: 'customFont';
+}
+
+.example-container {
+    width: 100%;
+    height: 100%;
+    background: white;
+  }
+  
+  mat-drawer-content {
+    padding: 12px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .example-container {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.example-is-mobile .example-toolbar {
+  position: fixed;
+  /* Make sure the toolbar will stay on top of the content as it scrolls past. */
+  z-index: 2;
+}
+
+h1.example-app-name {
+  margin-left: 8px;
+}
+
+.example-sidenav-container {
+  /* When the sidenav is not fixed, stretch the sidenav container to fill the available space. This
+     causes `<mat-sidenav-content>` to act as our scrolling element for desktop layouts. */
+  flex: 1;
+}
+
+.example-is-mobile .example-sidenav-container {
+  /* When the sidenav is fixed, don't constrain the height of the sidenav container. This allows the
+     `<body>` to be our scrolling element for mobile layouts. */
+  flex: 1 0 auto;
+}
+
+
+@media (max-width: 768px) {
+    .desktop {
+        display: none;
+    }
+
+    .mobile {
+        display: block;
+    }
+}

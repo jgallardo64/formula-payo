@@ -1,1 +1,212 @@
-<p>home works!</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12 col-md-8">
+      <div class="mb-4">
+        <h4>Próximo Gran Premio</h4>
+        <mat-card class="gp-card" [routerLink]="['/schedule/' + nextGp?.id]">
+          <div class="{{ nextGp?.id }}">
+            <p class="cal-country">
+              {{ nextGp?.data?.name
+              }}<span class="cal-title-date">{{ nextGp?.data?.date }}</span>
+            </p>
+            <p class="cal-title">{{ nextGp?.data?.circuit }}</p>
+          </div>
+        </mat-card>
+        <div class="countdown">
+          <div class="row">
+            <div class="col-12 col-md-2">
+              Tiempo restante
+            </div>
+            <div class="col-12 col-md-10">
+              <countdown
+                class="number"
+                #cd
+                [config]="{ stopTime: nextGp.data.day, format: 'dd' }"
+              ></countdown>
+              <span class="text">días</span>
+              <countdown
+                class="number"
+                #cd
+                [config]="{ stopTime: nextGp.data.hours, format: 'HH' }"
+              ></countdown>
+              <span class="text">horas</span>
+              <countdown
+                class="number"
+                #cd
+                [config]="{ stopTime: nextGp.data.hours, format: 'mm' }"
+              ></countdown>
+              <span class="text">minutos</span>
+              <countdown
+                class="number"
+                #cd
+                [config]="{ stopTime: nextGp.data.hours, format: 'ss' }"
+              ></countdown>
+              <span class="text">segundos</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="last-podium">
+        <h4>Podio 2019</h4>
+        <div class="row">
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="podium-driver">
+              <div class="driver">
+                <div class="position">
+                  1
+                </div>
+                <div class="driver-name">
+                  {{nextGp?.data?.lastPodium?.first?.driver}}
+                </div>
+              </div>
+              <div class="team">{{nextGp?.data?.lastPodium?.first?.team}}</div>
+              <div class="background-pattern">
+                <img [src]="'../../../assets/images/cars-full/' + nextGp.data.lastPodium.first.teamId +'.png'" width="100%">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="podium-driver">
+              <div class="driver">
+                <div class="position">
+                  2
+                </div>
+                <div class="driver-name">
+                  {{nextGp?.data?.lastPodium?.second?.driver}}
+                </div>
+              </div>
+              <div class="team">{{nextGp?.data?.lastPodium?.second?.team}}</div>
+              <div class="background-pattern">
+                <img [src]="'../../../assets/images/cars-full/' + nextGp.data.lastPodium.second.teamId +'.png'" width="100%">
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 col-lg-4 mb-4">
+            <div class="podium-driver">
+              <div class="driver">
+                <div class="position">
+                  3
+                </div>
+                <div class="driver-name">
+                  {{nextGp?.data?.lastPodium?.third?.driver}}
+                </div>
+              </div>
+              <div class="team">{{nextGp?.data?.lastPodium?.third?.team}}</div>
+              <div class="background-pattern">
+                <img [src]="'../../../assets/images/cars-full/' + nextGp.data.lastPodium.third.teamId +'.png'" width="100%">
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-12 col-md-4 mb-4">
+      <h5 style="margin-bottom: 16px;">Clasificación de pilotos</h5>
+      <table
+        mat-table
+        [dataSource]="driverStandings"
+        class="mat-elevation-z8"
+        style="margin-bottom: 30px;"
+      >
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center;">
+            POS
+          </th>
+          <td
+            mat-cell
+            *matCellDef="let element; index as i"
+            style="text-align: center;"
+          >
+            {{ i + 1 }}
+          </td>
+        </ng-container>
+
+        <!-- Driver Column -->
+        <ng-container matColumnDef="driver">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center;">
+            PILOTO
+          </th>
+          <td
+            class="driver-name"
+            mat-cell
+            *matCellDef="let element"
+            style="text-align: center;"
+          >
+            {{ element.data.driver }}
+          </td>
+        </ng-container>
+
+        <!-- Points Column -->
+        <ng-container matColumnDef="points">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center;">
+            PUNTOS
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+            {{ element.data.points }}
+          </td>
+        </ng-container>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="driversStandingsDisplayedColumns"
+        ></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: driversStandingsDisplayedColumns"
+        ></tr>
+      </table>
+
+      <h5 style="margin-bottom: 16px;">Clasificación de constructores</h5>
+      <table mat-table [dataSource]="teamStandings" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center;">
+            POS
+          </th>
+          <td
+            mat-cell
+            *matCellDef="let element; index as i"
+            style="text-align: center;"
+          >
+            {{ i + 1 }}
+          </td>
+        </ng-container>
+
+        <!-- Driver Column -->
+        <ng-container matColumnDef="team">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center;">
+            EQUIPO
+          </th>
+          <td
+            class="driver-name"
+            mat-cell
+            *matCellDef="let element"
+            style="text-align: center;"
+          >
+            {{ element.data.team }}
+          </td>
+        </ng-container>
+
+        <!-- Points Column -->
+        <ng-container matColumnDef="points">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center;">
+            PUNTOS
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+            {{ element.data.points }}
+          </td>
+        </ng-container>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="teamStandingsDisplayedColumns"
+        ></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: teamStandingsDisplayedColumns"
+        ></tr>
+      </table>
+    </div>
+  </div>
+</div>

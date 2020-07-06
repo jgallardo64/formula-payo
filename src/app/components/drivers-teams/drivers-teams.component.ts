@@ -25,7 +25,6 @@ export class DriversTeamsComponent implements OnInit {
           data: element.payload.doc.data()
         });
       });
-      console.log(this.teams);
     });
   }
 

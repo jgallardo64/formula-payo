@@ -1,0 +1,283 @@
+h4, h5 {
+    font-family: 'customFont';
+}
+
+h5 {
+    font-size: 16px;
+}
+
+table.mat-table {
+    width: 100% !important;
+}
+
+.podium-driver {
+    border-right: 2px solid black;
+    border-top: 2px solid black;
+    border-top-right-radius: 10px;
+
+    .driver {
+        padding-right: 10px;
+        display: flex;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .position {
+        display: block;
+        font-size: 32px;
+        font-family: 'customFont-bold';
+    }
+
+    .driver-name {
+        text-align: right;
+        text-transform: uppercase;
+        display: block;
+        font-family: 'customFont';
+        font-size: 13px;
+        letter-spacing: .2px;
+    }
+
+    .team {
+        font-family: 'customFont';
+        color: #67676d;
+        font-size: 11px;
+        letter-spacing: .5px;
+        font-weight: 400;
+        margin-bottom: 10px;
+    }
+
+    .background-pattern {
+        background-image: url(https://www.formula1.com/etc/designs/fom-website/images/patterns/plus-x1.png);
+        background-size: 12px;
+        background-repeat: repeat;
+        background-size: 8px;
+        padding: 13px;
+        margin-right: 5px;
+        text-align: center;
+    }
+}
+
+.countdown {
+    font-family: 'customFont';
+    margin-top: 15px;
+    padding: 15px;
+    background-color: #333;
+    height: 75px;
+    color: white;
+
+    .number {
+        font-size: 39px;
+        margin-right: 5px;
+    }
+
+    .text {
+        font-size: 12px;
+        margin-right: 10px;
+    }
+}
+
+.next-gp {
+    margin-top: 1px;
+    font-size: 16px;
+    font-family: 'customFont';
+    color: #111;
+    min-height: 40px;
+    height: auto;
+    position: relative;
+    padding: 10px;
+    margin-bottom: 0;
+}
+
+.mat-card {
+    padding: 0;
+    box-shadow: 0 0px 20px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+}
+
+.calendar-gp, .mat-card:active {
+    outline: none;
+}
+
+
+.cal-country {
+    font-size: 18px;
+    font-family: 'customFont';
+    color: #FFF;
+    margin-left: 50px;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 40px;
+    z-index: 10;
+
+    .cal-title-date {
+        color: #BBB;
+        margin-left: 5px;
+    }
+}
+
+.cal-title {
+    font-size: 30px;
+    font-family: 'customFont-bold';
+    color: #FFB713;
+    margin-left: 50px;
+    text-transform: uppercase;
+    position: absolute;
+    bottom: 0;
+    z-index: 9;
+}
+
+.calendar-gp, .gp-card:hover {
+    cursor: pointer;
+}
+
+.australia {
+    background: url(../../../assets/images/circuit-background/australia.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.bahrain {
+    background: url(../../../assets/images/circuit-background/bahrain.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.china {
+    background: url(../../../assets/images/circuit-background/china.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.azerbaijan {
+    background: url(../../../assets/images/circuit-background/azerbaijan.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.spain {
+    background: url(../../../assets/images/circuit-background/spain.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.monaco {
+    background: url(../../../assets/images/circuit-background/monaco.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.canada {
+    background: url(../../../assets/images/circuit-background/bahrain.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.france {
+    background: url(../../../assets/images/circuit-background/france.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.austria {
+    background: url(../../../assets/images/circuit-background/austria.jpg);
+    height: 250px;
+    background-size: cover;
+}
+
+.great-britain {
+    background: url(../../../assets/images/circuit-background/great-britain.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.germany {
+    background: url(../../../assets/images/circuit-background/germany.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.hungary {
+    background: url(../../../assets/images/circuit-background/hungary.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.belgium {
+    background: url(../../../assets/images/circuit-background/belgium.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.italy {
+    background: url(../../../assets/images/circuit-background/italy.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.singapore {
+    background: url(../../../assets/images/circuit-background/singapore.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.russia {
+    background: url(../../../assets/images/circuit-background/russia.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.japan {
+    background: url(../../../assets/images/circuit-background/japan.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.mexico {
+    background: url(../../../assets/images/circuit-background/mexico.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.usa {
+    background: url(../../../assets/images/circuit-background/usa.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.brazil {
+    background: url(../../../assets/images/circuit-background/brazil.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+.abu-dhabi {
+    background: url(../../../assets/images/circuit-background/abu-dhabi.jpg);
+    height: 200px;
+    background-size: cover;
+}
+
+@media (max-width: 992px) {
+    .countdown {
+        .number {
+            font-size: 20px;
+        }
+
+        .text {
+            font-size: 11px;
+        }
+    }
+}
+
+@media (max-width: 767px) {
+    .cal-title {
+        font-size: 30px;
+        color: #FFB713;
+        margin-left: 10px;
+    }
+
+    .cal-country {
+        margin-left: 10px;
+        font-size: 12px;
+        margin-top: -42px;
+    }
+}

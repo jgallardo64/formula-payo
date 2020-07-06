@@ -13,4 +13,12 @@ export class DriverStandingsService {
   getAll() {
     return this.firestore.collection('driver-standings', ref => ref.orderBy('points', 'desc')).snapshotChanges();
   }
+
+  getTopFive() {
+    return this.firestore.collection('driver-standings', ref => ref.orderBy('points', 'desc').limit(5)).snapshotChanges();
+  }
+
+  create(data: any) {
+    return this.firestore.collection('driver-standings').add(data);
+  }
 }

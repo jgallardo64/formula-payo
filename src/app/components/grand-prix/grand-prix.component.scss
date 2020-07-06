@@ -66,6 +66,10 @@
     margin-bottom: 0;
 }
 
+.gp-card:focus {
+    outline: none !important;
+}
+
 .mat-card {
     padding: 0;
     box-shadow: 0 0px 20px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
@@ -91,8 +95,101 @@
     font-family: 'customFont';
 }
 
-.table th,td {
-    padding: 0.20rem;
-    font-family: 'customFont';
+h5 {
+    font-family: 'customFont-bold';
     font-size: 15px;
 }
+
+a {
+    font-size: 12px;
+    color: #666;
+
+    &:hover {
+        color: #000;
+        text-decoration: none;
+    }
+}
+
+.ferrari {
+    border-left: 3px solid #DC0000;
+    height: 16px;
+    margin-right: 2px;
+}
+
+.mercedes {
+    border-left: 3px solid #00D2BE;
+    height: 16px;
+    margin-right: 2px;
+}
+
+.mclaren {
+    border-left: 3px solid #FF8700;
+    height: 16px;
+    margin-right: 2px;
+}
+
+.red-bull {
+    border-left: 3px solid #0600ef;
+    height: 16px;
+    margin-right: 2px;
+}
+
+.alpha-tauri {
+    border-left: 3px solid #001F66;
+    height: 16px;
+    margin-right: 2px;
+}
+
+.haas {
+    border-left: 3px solid #787878;
+    height: 16px;
+    margin-right: 2px;
+}
+
+.renault {
+    border-left: 3px solid #FFF500;
+    height: 16px;
+    margin-right: 2px;
+}
+
+.alfa-romeo {
+    border-left: 3px solid #960000;
+    height: 16px;
+    margin-right: 2px;
+}
+
+.williams {
+    border-left: 3px solid #0082FA;
+    height: 16px;
+    margin-right: 2px;
+}
+
+.racing-point {
+    border-left: 3px solid #F596C8;
+    height: 16px;
+    margin-right: 2px;
+}
+
+table {
+    width: 100%;
+    font-family: 'Titillium';
+    font-size: 13px;
+  }
+
+table, thead, th, tbody, td {
+    border: none !important;
+}
+
+.driver-name {
+    font-family: 'Titillium-Semibold';
+}
+
+.team-name {
+    text-transform: uppercase;
+    font-family: 'Titillium-Semibold';
+    color: gray;
+}
+
+.mat-row:nth-child(odd){
+    background-color:#f4f4f4;
+    }

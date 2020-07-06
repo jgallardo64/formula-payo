@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { DriverStandingsService } from 'src/app/shared/services/driver-standings.service';
+import { TeamsStadingsService } from 'src/app/shared/services/teams-stadings.service';
 
 @Component({
   selector: 'app-standings',
@@ -8,14 +9,21 @@ import { DriverStandingsService } from 'src/app/shared/services/driver-standings
 })
 export class StandingsComponent implements OnInit {
 
+  driversStandingsDisplayedColumns: string[] = ['position', 'driver', 'car', 'team', 'points'];
+  teamStandingsDisplayedColumns: string[] = ['position', 'car', 'team', 'points'];
+  racesDisplayedColumns: string[] = ['position', 'driver', 'points' , 'aut', 'hun', 'aus', 'gbr', 'brn', 'esp', 'chn', 'bel', 'ita'];
+
   driverStandings = [];
+  teamStandings = [];
 
   constructor(
-    private driverStandingsService: DriverStandingsService
+    private driverStandingsService: DriverStandingsService,
+    private teamStandingsService: TeamsStadingsService
   ) { }
 
   ngOnInit() {
     this.getDriverStandings();
+    this.getTeamStandings();
   }
 
   getDriverStandings() {
@@ -25,6 +33,20 @@ export class StandingsComponent implements OnInit {
       this.driverStandings = [];
       response.forEach(element => {
         this.driverStandings.push({
+          id: element.payload.doc.id,
+          data: element.payload.doc.data()
+        });
+      });
+    });
+  }
+
+  getTeamStandings() {
+    this.teamStandingsService
+    .getAll()
+    .subscribe((response) => {
+      this.teamStandings = [];
+      response.forEach(element => {
+        this.teamStandings.push({
           id: element.payload.doc.id,
           data: element.payload.doc.data()
         });
