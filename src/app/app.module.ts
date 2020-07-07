@@ -31,10 +31,6 @@ import { DriversTeamsComponent } from './components/drivers-teams/drivers-teams.
 import { ReactiveFormsModule } from '@angular/forms';
 import { CountdownModule, CountdownGlobalConfig } from 'ngx-countdown';
 
-// function countdownConfigFactory(): CountdownGlobalConfig {
-//   return { locale: 'es', format: 'mm:ss' };
-// }
-
 @NgModule({
   declarations: [
     AppComponent,
