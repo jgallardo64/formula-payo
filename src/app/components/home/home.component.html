@@ -18,29 +18,13 @@
               Tiempo restante
             </div>
             <div class="col-12 col-md-10">
-              <countdown
-                class="number"
-                #cd
-                [config]="{ stopTime: nextGp?.data?.day, format: 'dd' }"
-              ></countdown>
+              <span id="days" class="number"></span>
               <span class="text">días</span>
-              <countdown
-                class="number"
-                #cd
-                [config]="{ stopTime: nextGp?.data?.hours, format: 'HH' }"
-              ></countdown>
+              <span id="hours" class="number"></span>
               <span class="text">horas</span>
-              <countdown
-                class="number"
-                #cd
-                [config]="{ stopTime: nextGp?.data?.hours, format: 'mm' }"
-              ></countdown>
+              <span id="minutes" class="number"></span>
               <span class="text">minutos</span>
-              <countdown
-                class="number"
-                #cd
-                [config]="{ stopTime: nextGp?.data?.hours, format: 'ss' }"
-              ></countdown>
+              <span id="seconds" class="number"></span>
               <span class="text">segundos</span>
             </div>
           </div>

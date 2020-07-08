@@ -25,6 +25,7 @@
     "angularfire2": "^5.4.2",
     "bootstrap": "^4.5.0",
     "firebase": "^7.15.4",
+    "jquery": "^3.5.1",
     "ng2-date-countdown": "^1.1.2",
     "ngx-countdown": "^10.0.0",
     "rxjs": "~6.4.0",

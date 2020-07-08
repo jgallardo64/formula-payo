@@ -2,7 +2,9 @@
   <mat-drawer #drawer class="example-sidenav" mode="over" style="top:56px;">
   	<mat-nav-list>
       <mat-list-item [routerLink]="['/home']" (click)="drawer.toggle()">Inicio</mat-list-item>
-      <mat-list-item (click)="teamsMenu.openMenu()">
+      <mat-list-item [routerLink]="['/drivers-teams']" (click)="drawer.toggle()">Escuderías y pilotos</mat-list-item>
+      <mat-list-item [routerLink]="['/standings']" (click)="drawer.toggle()">Clasificaciones</mat-list-item>
+      <!-- <mat-list-item (click)="teamsMenu.openMenu()">
         <div mat-line #teamsMenu="matMenuTrigger"  [matMenuTriggerFor]="teams">
           Escuderías y pilotos
         </div>
@@ -10,8 +12,8 @@
       <mat-menu #teams="matMenu">
         <button mat-menu-item [routerLink]="['/drivers-teams']" (click)="drawer.toggle()">Igualado</button>
         <button mat-menu-item [routerLink]="['/drivers-teams']" (click)="drawer.toggle()">Realista</button>
-      </mat-menu>
-      <mat-list-item (click)="standingsMenu.openMenu()">
+      </mat-menu> -->
+      <!-- <mat-list-item (click)="standingsMenu.openMenu()">
         <div mat-line #standingsMenu="matMenuTrigger"  [matMenuTriggerFor]="standings">
           Clasificaciones
         </div>
@@ -19,7 +21,7 @@
       <mat-menu #standings="matMenu">
         <button mat-menu-item [routerLink]="['/standings']" (click)="drawer.toggle()">Igualado</button>
         <button mat-menu-item [routerLink]="['/standings']" (click)="drawer.toggle()">Realista</button>
-      </mat-menu>
+      </mat-menu> -->
     </mat-nav-list>
   </mat-drawer>
 
@@ -38,7 +40,9 @@
       </div>
       <span class="menu-spacer mr-4"></span>
       <div class="desktop">
-        <button mat-button [matMenuTriggerFor]="pilotos">
+        <button mat-button [routerLink]="'/drivers-teams'">Escuderías y pilotos</button>
+        <button mat-button [routerLink]="'/standings'">Clasificaciones</button>
+        <!-- <button mat-button [matMenuTriggerFor]="pilotos">
           Escuderías y pilotos
         </button>
         <mat-menu #pilotos="matMenu">
@@ -51,7 +55,7 @@
         <mat-menu #clasificaciones="matMenu">
           <button mat-menu-item [routerLink]="'/standings'">Igualado</button>
           <button mat-menu-item>Realista</button>
-        </mat-menu>
+        </mat-menu> -->
         <button mat-button [routerLink]="'/regulation'">Reglamento</button>
         <button mat-button [routerLink]="'/schedule'">Grandes Premios</button>
       </div>
