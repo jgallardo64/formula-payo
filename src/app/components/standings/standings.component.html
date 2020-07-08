@@ -1,291 +1,4 @@
-<!-- <div class="container">
-  <h4>Clasificación de pilotos</h4>
-    <table class="table table-striped">
-        <thead>
-        <tr>
-            <th class="pos-col" scope="col">Pos</th>
-            <th class="driver-col" scope="col">Piloto</th>
-            <th colspan="2" class="team-col" scope="col">Escudería</th>
-            <th class="pts-col" scope="col">Pts</th>
-            <th class="gp-col" scope="col" [routerLink]="['/schedule/austria']">
-                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/aut.png"><br>
-                AUT
-            </th>
-            <th class="gp-col" scope="col" [routerLink]="['/schedule/hungary']">
-                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/hun.png"><br>
-                HUN
-            </th>
-            <th class="gp-col" scope="col" [routerLink]="['/schedule/australia']">
-                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/aus.png"><br>
-                AUS
-            </th>
-            <th class="gp-col" scope="col" [routerLink]="['/schedule/great-britain']">
-                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/gbr.png"><br>
-                GBR
-            </th>
-            <th class="gp-col" scope="col" [routerLink]="['/schedule/bahrain']">
-                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/brn.png"><br>
-                BRN
-            </th>
-            <th class="gp-col" scope="col" [routerLink]="['/schedule/spain']">
-                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/esp.png"><br>
-                ESP
-            </th>
-            <th class="gp-col" scope="col" [routerLink]="['/schedule/china']">
-                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/chn.png"><br>
-                CHN
-            </th>
-            <th class="gp-col" scope="col" [routerLink]="['/schedule/belgium']">
-                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/bel.png"><br>
-                BEL
-            </th>
-            <th class="gp-col" scope="col" [routerLink]="['/schedule/italy']">
-                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/ita.png"><br>
-                ITA
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let driver of driverStandings; index as i">
-          <th scope="row">{{ i + 1 }}</th>
-          <td class="driver-name">{{driver?.data?.driver}}</td>
-          <td class="team-col" [ngClass]="driver.data.teamId">{{driver?.data?.team}}</td>
-          <td class="team-col">
-            <img [src]="'../../../assets/images/cars/' + driver.data.teamId + '.png'" width="80px">
-          </td>
-          <td class="points-col">{{driver?.data?.points}}</td>
-          <td>
-            <span [ngClass]="{
-              'first': driver?.data?.AUT?.position === 1,
-              'second': driver?.data?.AUT?.position === 2,
-              'third': driver?.data?.AUT?.position === 3,
-              'points': driver?.data?.AUT?.position > 3 && driver?.data?.AUT?.position <= 10,
-              'tenth': driver?.data?.AUT?.position === 10,
-              'no-points': driver?.data?.AUT?.position > 10,
-              'dnf': driver?.data?.AUT?.dnf === true
-            }">
-            {{driver?.data?.AUT?.position}}
-          </span>
-        </td>
-        <td>
-            <span [ngClass]="{
-              'first': driver?.data?.HUN?.position === 1,
-              'second': driver?.data?.HUN?.position === 2,
-              'third': driver?.data?.HUN?.position === 3,
-              'points': driver?.data?.HUN?.position > 3 && driver?.data?.HUN?.position <= 10,
-              'tenth': driver?.data?.HUN?.position === 10,
-              'no-points': driver?.data?.HUN?.position > 10,
-              'dnf': driver?.data?.HUN?.dnf === true
-            }">
-            {{driver?.data?.HUN?.position}}
-          </span>
-        </td>
-        <td>
-            <span [ngClass]="{
-              'first': driver?.data?.AUS?.position === 1,
-              'second': driver?.data?.AUS?.position === 2,
-              'third': driver?.data?.AUS?.position === 3,
-              'points': driver?.data?.AUS?.position > 3 && driver?.data?.AUS?.position <= 10,
-              'tenth': driver?.data?.AUS?.position === 10,
-              'no-points': driver?.data?.AUS?.position > 10,
-              'dnf': driver?.data?.AUS?.position > 10
-            }">
-            {{driver?.data?.AUS?.position}}
-          </span>
-        </td>
-        <td>
-            <span [ngClass]="{
-              'first': driver?.data?.GBR?.position === 1,
-              'second': driver?.data?.GBR?.position === 2,
-              'third': driver?.data?.GBR?.position === 3,
-              'points': driver?.data?.GBR?.position > 3 && driver?.data?.GBR?.position <= 10,
-              'tenth': driver?.data?.GBR?.position === 10,
-              'no-points': driver?.data?.GBR?.position > 10,
-              'dnf': driver?.data?.GBR?.dnf === true
-            }">
-            {{driver?.data?.GBR?.position}}
-          </span>
-        </td>
-        <td>
-            <span [ngClass]="{
-              'first': driver?.data?.BRN?.position === 1,
-              'second': driver?.data?.BRN?.position === 2,
-              'third': driver?.data?.BRN?.position === 3,
-              'points': driver?.data?.BRN?.position > 3 && driver?.data?.BRN?.position <= 10,
-              'tenth': driver?.data?.BRN?.position === 10,
-              'no-points': driver?.data?.BRN?.position > 10,
-              'dnf': driver?.data?.BRN?.dnf === true
-            }">
-            {{driver?.data?.BRN?.position}}
-          </span>
-        </td>
-        <td>
-            <span [ngClass]="{
-              'first': driver?.data?.ESP?.position === 1,
-              'second': driver?.data?.ESP?.position === 2,
-              'third': driver?.data?.ESP?.position === 3,
-              'points': driver?.data?.ESP?.position > 3 && driver?.data?.ESP?.position <= 10,
-              'tenth': driver?.data?.ESP?.position === 10,
-              'no-points': driver?.data?.ESP?.position > 10,
-              'dnf': driver?.data?.ESP?.dnf === true
-            }">
-            {{driver?.data?.ESP?.position}}
-          </span>
-        </td>
-        <td>
-            <span [ngClass]="{
-              'first': driver?.data?.CHN?.position === 1,
-              'second': driver?.data?.CHN?.position === 2,
-              'third': driver?.data?.CHN?.position === 3,
-              'points': driver?.data?.CHN?.position > 3 && driver?.data?.CHN?.position <= 10,
-              'tenth': driver?.data?.CHN?.position === 10,
-              'no-points': driver?.data?.CHN?.position > 10,
-              'dnf': driver?.data?.CHN?.dnf === true
-            }">
-            {{driver?.data?.CHN?.position}}
-          </span>
-        </td>
-        <td>
-            <span [ngClass]="{
-              'first': driver?.data?.BEL?.position === 1,
-              'second': driver?.data?.BEL?.position === 2,
-              'third': driver?.data?.BEL?.position === 3,
-              'points': driver?.data?.BEL?.position > 3 && driver?.data?.BEL?.position <= 10,
-              'tenth': driver?.data?.BEL?.position === 10,
-              'no-points': driver?.data?.BEL?.position > 10,
-              'dnf': driver?.data?.BEL?.dnf === true
-            }">
-            {{driver?.data?.BEL?.position}}
-          </span>
-        </td>
-        <td>
-            <span [ngClass]="{
-              'first': driver?.data?.ITA?.position === 1,
-              'second': driver?.data?.ITA?.position === 2,
-              'third': driver?.data?.ITA?.position === 3,
-              'points': driver?.data?.ITA?.position > 3 && driver?.data?.ITA?.position <= 10,
-              'tenth': driver?.data?.ITA?.position === 10,
-              'no-points': driver?.data?.ITA?.position > 10,
-              'dnf': driver?.data?.ITA?.dnf === true
-            }">
-            {{driver?.data?.ITA?.position}}
-          </span>
-        </td>
-        </tr>
-        </tbody>
-      </table>
-
-      <span class="first">1</span> <span class="legend mr-2"> Primera posición</span>
-      <span class="second">2</span> <span class="legend mr-2"> Segunda posición</span>
-      <span class="third">3</span> <span class="legend mr-2"> Tercera posición</span>
-      <span class="points">4</span> <span class="legend mr-2"> Finalizó en los puntos</span>
-      <span class="no-points">11</span> <span class="legend mr-2"> Finalizó sin puntos</span>
-      <span class="dnf">15</span> <span class="legend mr-2"> No terminó</span>
-      <span class="dsq">DSQ</span> <span class="legend mr-2"> Descalificado</span>
-      <span class="fastest-lap">10</span> <span class="legend mr-2"> Vuelta rápida</span>
-
-      <h4 class="mt-4">Clasificación de constructores</h4>
-      <table class="table table-striped">
-        <thead>
-        <tr>
-            <th class="pos-col" scope="col">Pos</th>
-            <th class="driver-col" scope="col">Equipo</th>
-            <th class="pts-col" scope="col">Pts</th>
-            <th class="gp-col" scope="col" [routerLink]="['/schedule/austria']">
-                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/aut.png"><br>
-                AUT
-            </th>
-            <th class="gp-col" scope="col" [routerLink]="['/schedule/hungary']">
-                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/hun.png"><br>
-                HUN
-            </th>
-            <th class="gp-col" scope="col" [routerLink]="['/schedule/australia']">
-                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/aus.png"><br>
-                AUS
-            </th>
-            <th class="gp-col" scope="col" [routerLink]="['/schedule/great-britain']">
-                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/gbr.png"><br>
-                GBR
-            </th>
-            <th class="gp-col" scope="col" [routerLink]="['/schedule/bahrain']">
-                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/brn.png"><br>
-                BRN
-            </th>
-            <th class="gp-col" scope="col" [routerLink]="['/schedule/spain']">
-                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/esp.png"><br>
-                ESP
-            </th>
-            <th class="gp-col" scope="col" [routerLink]="['/schedule/china']">
-                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/chn.png"><br>
-                CHN
-            </th>
-            <th class="gp-col" scope="col" [routerLink]="['/schedule/belgium']">
-                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/bel.png"><br>
-                BEL
-            </th>
-            <th class="gp-col" scope="col" [routerLink]="['/schedule/italy']">
-                <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/ita.png"><br>
-                ITA
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr *ngFor="let team of teamStandings; index as i">
-          <th scope="row">{{ i + 1 }}</th>
-          <td class="driver-name" [ngClass]="team.data.id">{{team?.data?.team}}</td>
-          <td class="points-col">{{team?.data?.points}}</td>
-          <td>
-            <span>
-            {{team?.data?.AUT}}
-          </span>
-        </td>
-        <td>
-            <span>
-            {{team?.data?.HUN}}
-          </span>
-        </td>
-        <td>
-            <span>
-            {{team?.data?.AUS}}
-          </span>
-        </td>
-        <td>
-            <span>
-            {{team?.data?.GBR}}
-          </span>
-        </td>
-        <td>
-            <span>
-            {{team?.data?.BRN}}
-          </span>
-        </td>
-        <td>
-            <span>
-            {{team?.data?.ESP}}
-          </span>
-        </td>
-        <td>
-            <span>
-            {{team?.data?.CHN}}
-          </span>
-        </td>
-        <td>
-            <span>
-            {{team?.data?.BEL}}
-          </span>
-        </td>
-        <td>
-            <span>
-            {{team?.data?.ITA}}
-          </span>
-        </td>
-        </tr>
-        </tbody>
-      </table>
-</div> -->
-
-<div class="container">
-
+<div class="container mb-4">
   <mat-tab-group mat-align-tabs="center">
     <mat-tab>
       <ng-template mat-tab-label>
@@ -297,303 +10,474 @@
         Pilotos
       </ng-template>
       <table mat-table [dataSource]="driverStandings" class="mat-elevation-z8">
-      
         <!-- Position Column -->
         <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef> POS </th>
-          <td mat-cell *matCellDef="let element; index as i"> {{i + 1}} </td>
-        </ng-container>
-      
-        <!-- Driver Column -->
-        <ng-container matColumnDef="driver">
-          <th mat-header-cell *matHeaderCellDef> PILOTO </th>
-          <td class="driver-name" mat-cell *matCellDef="let element"> {{element.data.driver}} </td>
-        </ng-container>
-      
-        <!-- Team Column -->
-        <ng-container matColumnDef="team">
-          <th mat-header-cell *matHeaderCellDef> EQUIPO </th>
-          <td class="team-name" mat-cell *matCellDef="let element"> 
-            <span class="mr-2" [ngClass]="element.data.teamId"></span>{{element.data.team}}
-            </td>
-        </ng-container>
-      
-          <!-- Car Column -->
-          <ng-container matColumnDef="car">
-            <th mat-header-cell *matHeaderCellDef>COCHE</th>
-            <td mat-cell *matCellDef="let element">
-              <img class="car-img" [src]="'../../../assets/images/cars/' + element?.data.teamId + '.png'">
-            </td>
-          </ng-container>
-      
-        <!-- Points Column -->
-        <ng-container matColumnDef="points">
-          <th mat-header-cell *matHeaderCellDef style="text-align: center;"> PUNTOS </th>
-          <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.data.points}} </td>
+          <th mat-header-cell *matHeaderCellDef>POS</th>
+          <td mat-cell *matCellDef="let element; index as i">{{ i + 1 }}</td>
         </ng-container>
 
-        <tr mat-header-row *matHeaderRowDef="driversStandingsDisplayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: driversStandingsDisplayedColumns;"></tr>
+        <!-- Driver Column -->
+        <ng-container matColumnDef="driver">
+          <th mat-header-cell *matHeaderCellDef>PILOTO</th>
+          <td class="driver-name" mat-cell *matCellDef="let element">
+            {{ element.data.driver }}
+          </td>
+        </ng-container>
+
+        <!-- Team Column -->
+        <ng-container matColumnDef="team">
+          <th mat-header-cell *matHeaderCellDef>EQUIPO</th>
+          <td class="team-name" mat-cell *matCellDef="let element">
+            <span class="mr-2" [ngClass]="element.data.teamId"></span
+            >{{ element.data.team }}
+          </td>
+        </ng-container>
+
+        <!-- Car Column -->
+        <ng-container matColumnDef="car">
+          <th mat-header-cell *matHeaderCellDef>COCHE</th>
+          <td mat-cell *matCellDef="let element">
+            <img
+              class="car-img"
+              [src]="
+                '../../../assets/images/cars/' + element?.data.teamId + '.png'
+              "
+            />
+          </td>
+        </ng-container>
+
+        <!-- Points Column -->
+        <ng-container matColumnDef="points">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center;">
+            PUNTOS
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+            {{ element.data.points }}
+          </td>
+        </ng-container>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="driversStandingsDisplayedColumns"
+        ></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: driversStandingsDisplayedColumns"
+        ></tr>
       </table>
     </mat-tab>
 
     <mat-tab>
-        <ng-template mat-tab-label>
-          <img
-            class="mr-1"
-            src="../../../assets/images/team.svg"
-            width="22px"
-          />
-          Escuderías
-        </ng-template>
+      <ng-template mat-tab-label>
+        <img class="mr-1" src="../../../assets/images/team.svg" width="22px" />
+        Escuderías
+      </ng-template>
 
-        <table mat-table [dataSource]="teamStandings" class="mat-elevation-z8">
-        
-          <!-- Position Column -->
-          <ng-container matColumnDef="position">
-            <th mat-header-cell *matHeaderCellDef> POS </th>
-            <td mat-cell *matCellDef="let element; index as i"> {{i + 1}} </td>
-          </ng-container>
-        
-          <!-- Team Column -->
-          <ng-container matColumnDef="team">
-            <th mat-header-cell *matHeaderCellDef> EQUIPO </th>
-            <td class="team-name" mat-cell *matCellDef="let element"> 
-              <span class="mr-2" [ngClass]="element.data.id"></span>{{element.data.team}}
-              </td>
-          </ng-container>
-        
-            <!-- Car Column -->
-            <ng-container matColumnDef="car">
-              <th mat-header-cell *matHeaderCellDef>COCHE</th>
-              <td mat-cell *matCellDef="let element">
-                <img class="car-img" [src]="'../../../assets/images/cars/' + element?.data.id + '.png'">
-              </td>
-            </ng-container>
-        
-          <!-- Points Column -->
-          <ng-container matColumnDef="points">
-            <th mat-header-cell *matHeaderCellDef style="text-align: center;"> PUNTOS </th>
-            <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.data.points}} </td>
-          </ng-container>
-        
-          <tr mat-header-row *matHeaderRowDef="teamStandingsDisplayedColumns"></tr>
-          <tr mat-row *matRowDef="let row; columns: teamStandingsDisplayedColumns;"></tr>
-        </table>
+      <table mat-table [dataSource]="teamStandings" class="mat-elevation-z8">
+        <!-- Position Column -->
+        <ng-container matColumnDef="position">
+          <th mat-header-cell *matHeaderCellDef>POS</th>
+          <td mat-cell *matCellDef="let element; index as i">{{ i + 1 }}</td>
+        </ng-container>
 
+        <!-- Team Column -->
+        <ng-container matColumnDef="team">
+          <th mat-header-cell *matHeaderCellDef>EQUIPO</th>
+          <td class="team-name" mat-cell *matCellDef="let element">
+            <span class="mr-2" [ngClass]="element.data.id"></span
+            >{{ element.data.team }}
+          </td>
+        </ng-container>
+
+        <!-- Car Column -->
+        <ng-container matColumnDef="car">
+          <th mat-header-cell *matHeaderCellDef>COCHE</th>
+          <td mat-cell *matCellDef="let element">
+            <img
+              class="car-img"
+              [src]="'../../../assets/images/cars/' + element?.data.id + '.png'"
+            />
+          </td>
+        </ng-container>
+
+        <!-- Points Column -->
+        <ng-container matColumnDef="points">
+          <th mat-header-cell *matHeaderCellDef style="text-align: center;">
+            PUNTOS
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+            {{ element.data.points }}
+          </td>
+        </ng-container>
+
+        <tr
+          mat-header-row
+          *matHeaderRowDef="teamStandingsDisplayedColumns"
+        ></tr>
+        <tr
+          mat-row
+          *matRowDef="let row; columns: teamStandingsDisplayedColumns"
+        ></tr>
+      </table>
     </mat-tab>
 
-      <mat-tab>
+    <mat-tab>
       <ng-template mat-tab-label>
-        <img
-          class="mr-1"
-          src="../../../assets/images/flag.svg"
-          width="24px"
-        />
+        <img class="mr-1" src="../../../assets/images/flag.svg" width="24px" />
         Carreras
       </ng-template>
       <table mat-table [dataSource]="driverStandings" class="mat-elevation-z8">
-        
         <!-- Position Column -->
         <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef> POS </th>
-          <td mat-cell *matCellDef="let element; index as i"> {{i + 1}} </td>
+          <th mat-header-cell *matHeaderCellDef>POS</th>
+          <td mat-cell *matCellDef="let element; index as i">{{ i + 1 }}</td>
         </ng-container>
-      
+
         <!-- Driver Column -->
         <ng-container matColumnDef="driver">
-          <th mat-header-cell *matHeaderCellDef> PILOTO </th>
-          <td class="driver-name" mat-cell *matCellDef="let element"> 
-            <span class="mr-2"></span>{{element.data.driver}}
-            </td>
+          <th mat-header-cell *matHeaderCellDef>PILOTO</th>
+          <td class="driver-name" mat-cell *matCellDef="let element">
+            <span class="mr-2"></span>{{ element.data.driver }}
+          </td>
         </ng-container>
-      
+
         <!-- Points Column -->
         <ng-container matColumnDef="points">
-          <th mat-header-cell *matHeaderCellDef style="text-align: center;"> PUNTOS </th>
-          <td mat-cell *matCellDef="let element" style="text-align: center;"> {{element.data.points}} </td>
+          <th mat-header-cell *matHeaderCellDef style="text-align: center;">
+            PUNTOS
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+            {{ element.data.points }}
+          </td>
         </ng-container>
 
         Symbol Column
-          <ng-container matColumnDef="aut">
-            <th mat-header-cell *matHeaderCellDef style="text-align: center;"> 
-              <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/aut.png"> <br>
-              AUT 
-            </th>
-            <td mat-cell *matCellDef="let element" style="text-align: center;"> <span [ngClass]="{
-              'first': element?.data?.AUT?.position === 1,
-              'second': element?.data?.AUT?.position === 2,
-              'third': element?.data?.AUT?.position === 3,
-              'points': element?.data?.AUT?.position > 3 && element?.data?.AUT?.position <= 10,
-              'tenth': element?.data?.AUT?.position === 10,
-              'no-points': element?.data?.AUT?.position > 10,
-              'dnf': element?.data?.AUT?.dnf === true,
-              'dsq': element?.data?.AUT?.dsq === true,
-              'fastest-lap': element?.data?.AUT?.fastestLap === true
-            }">
-              {{element?.data?.AUT?.position}}
-            </span> </td>
-          </ng-container>
-      
-            <!-- Symbol Column -->
+        <ng-container matColumnDef="aut">
+          <th
+            class="gp"
+            mat-header-cell
+            *matHeaderCellDef
+            [routerLink]="['/schedule/austria']"
+            style="text-align: center;"
+          >
+            <img
+              src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/aut.png"
+            />
+            <br />
+            <span style="border-bottom: 1px dotted">AUT</span>
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+            <span
+              [ngClass]="{
+                first: element?.data?.AUT?.position === 1,
+                second: element?.data?.AUT?.position === 2,
+                third: element?.data?.AUT?.position === 3,
+                points:
+                  element?.data?.AUT?.position > 3 &&
+                  element?.data?.AUT?.position <= 10,
+                tenth: element?.data?.AUT?.position === 10,
+                'no-points': element?.data?.AUT?.position > 10,
+                dnf: element?.data?.AUT?.dnf === true,
+                dsq: element?.data?.AUT?.dsq === true,
+                'fastest-lap': element?.data?.AUT?.fastestLap === true
+              }"
+            >
+              {{ element?.data?.AUT?.position }}
+            </span>
+          </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
         <ng-container matColumnDef="hun">
-          <th mat-header-cell *matHeaderCellDef style="text-align: center;"> 
-            <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/hun.png"> <br>
-            HUN </th>
-          <td mat-cell *matCellDef="let element" style="text-align: center;"> <span [ngClass]="{
-            'first': element?.data?.HUN?.position === 1,
-            'second': element?.data?.HUN?.position === 2,
-            'third': element?.data?.HUN?.position === 3,
-            'points': element?.data?.HUN?.position > 3 && element?.data?.HUN?.position <= 10,
-            'tenth': element?.data?.HUN?.position === 10,
-            'no-points': element?.data?.HUN?.position > 10,
-            'dnf': element?.data?.HUN?.dnf === true,
-            'dsq': element?.data?.HUN?.dsq === true,
-            'fastest-lap': element?.data?.HUN?.fastestLap === true
-          }">
-            {{element?.data?.HUN?.position}}
-          </span> </td>
+          <th
+            class="gp"
+            mat-header-cell
+            *matHeaderCellDef
+            [routerLink]="['/schedule/hungary']"
+            style="text-align: center;"
+          >
+            <img
+              src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/hun.png"
+            />
+            <br />
+            <span style="border-bottom: 1px dotted">HUN</span>
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+            <span
+              [ngClass]="{
+                first: element?.data?.HUN?.position === 1,
+                second: element?.data?.HUN?.position === 2,
+                third: element?.data?.HUN?.position === 3,
+                points:
+                  element?.data?.HUN?.position > 3 &&
+                  element?.data?.HUN?.position <= 10,
+                tenth: element?.data?.HUN?.position === 10,
+                'no-points': element?.data?.HUN?.position > 10,
+                dnf: element?.data?.HUN?.dnf === true,
+                dsq: element?.data?.HUN?.dsq === true,
+                'fastest-lap': element?.data?.HUN?.fastestLap === true
+              }"
+            >
+              {{ element?.data?.HUN?.position }}
+            </span>
+          </td>
         </ng-container>
-      
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="aus">
-            <th mat-header-cell *matHeaderCellDef style="text-align: center;"> 
-              <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/aus.png"> <br>
-              AUS </th>
-            <td mat-cell *matCellDef="let element" style="text-align: center;"> 
-              <span [ngClass]="{
-                'first': element?.data?.AUS?.position === 1,
-                'second': element?.data?.AUS?.position === 2,
-                'third': element?.data?.AUS?.position === 3,
-                'points': element?.data?.AUS?.position > 3 && element?.data?.AUS?.position <= 10,
-                'tenth': element?.data?.AUS?.position === 10,
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="aus">
+          <th
+            class="gp"
+            mat-header-cell
+            *matHeaderCellDef
+            [routerLink]="['/schedule/australia']"
+            style="text-align: center;"
+          >
+            <img
+              src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/aus.png"
+            />
+            <br />
+            <span style="border-bottom: 1px dotted">AUS</span>
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+            <span
+              [ngClass]="{
+                first: element?.data?.AUS?.position === 1,
+                second: element?.data?.AUS?.position === 2,
+                third: element?.data?.AUS?.position === 3,
+                points:
+                  element?.data?.AUS?.position > 3 &&
+                  element?.data?.AUS?.position <= 10,
+                tenth: element?.data?.AUS?.position === 10,
                 'no-points': element?.data?.AUS?.position > 10,
-                'dnf': element?.data?.AUS?.dnf === true,
-                'dsq': element?.data?.AUS?.dsq === true,
+                dnf: element?.data?.AUS?.dnf === true,
+                dsq: element?.data?.AUS?.dsq === true,
                 'fastest-lap': element?.data?.AUS?.fastestLap === true
-              }">
-                {{element?.data?.AUS?.position}}
-              </span> </td>
-          </ng-container>
-      
-            <!-- Symbol Column -->
+              }"
+            >
+              {{ element?.data?.AUS?.position }}
+            </span>
+          </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
         <ng-container matColumnDef="gbr">
-          <th mat-header-cell *matHeaderCellDef style="text-align: center;"> <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/gbr.png"> <br>
-            GBR </th>
-          <td mat-cell *matCellDef="let element" style="text-align: center;"> <span [ngClass]="{
-            'first': element?.data?.GBR?.position === 1,
-            'second': element?.data?.GBR?.position === 2,
-            'third': element?.data?.GBR?.position === 3,
-            'points': element?.data?.GBR?.position > 3 && element?.data?.GBR?.position <= 10,
-            'tenth': element?.data?.GBR?.position === 10,
-            'no-points': element?.data?.GBR?.position > 10,
-            'dnf': element?.data?.GBR?.dnf === true,
-            'dsq': element?.data?.GBR?.dsq === true,
-            'fastest-lap': element?.data?.GBR?.fastestLap === true
-          }">
-            {{element?.data?.GBR?.position}}
-          </span> </td>
+          <th
+            class="gp"
+            mat-header-cell
+            *matHeaderCellDef
+            [routerLink]="['/schedule/great-britain']"
+            style="text-align: center;"
+          >
+            <img
+              src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/gbr.png"
+            />
+            <br />
+            <span style="border-bottom: 1px dotted">GBR</span>
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+            <span
+              [ngClass]="{
+                first: element?.data?.GBR?.position === 1,
+                second: element?.data?.GBR?.position === 2,
+                third: element?.data?.GBR?.position === 3,
+                points:
+                  element?.data?.GBR?.position > 3 &&
+                  element?.data?.GBR?.position <= 10,
+                tenth: element?.data?.GBR?.position === 10,
+                'no-points': element?.data?.GBR?.position > 10,
+                dnf: element?.data?.GBR?.dnf === true,
+                dsq: element?.data?.GBR?.dsq === true,
+                'fastest-lap': element?.data?.GBR?.fastestLap === true
+              }"
+            >
+              {{ element?.data?.GBR?.position }}
+            </span>
+          </td>
         </ng-container>
-      
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="brn">
-            <th mat-header-cell *matHeaderCellDef style="text-align: center;"> <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/brn.png"> <br>
-              BRN </th>
-            <td mat-cell *matCellDef="let element" style="text-align: center;"> <span [ngClass]="{
-              'first': element?.data?.BRN?.position === 1,
-              'second': element?.data?.BRN?.position === 2,
-              'third': element?.data?.BRN?.position === 3,
-              'points': element?.data?.BRN?.position > 3 && element?.data?.BRN?.position <= 10,
-              'tenth': element?.data?.BRN?.position === 10,
-              'no-points': element?.data?.BRN?.position > 10,
-              'dnf': element?.data?.BRN?.dnf === true,
-              'dsq': element?.data?.BRN?.dsq === true,
-              'fastest-lap': element?.data?.BRN?.fastestLap === true
-            }">
-              {{element?.data?.BRN?.position}}
-            </span> </td>
-          </ng-container>
-      
-            <!-- Symbol Column -->
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="hol">
+          <th
+            class="gp"
+            mat-header-cell
+            *matHeaderCellDef
+            [routerLink]="['/schedule/netherlands']"
+            style="text-align: center;"
+          >
+            <img
+              src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/hol.png"
+            />
+            <br />
+            <span style="border-bottom: 1px dotted">HOL</span>
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+            <span
+              [ngClass]="{
+                first: element?.data?.HOL?.position === 1,
+                second: element?.data?.HOL?.position === 2,
+                third: element?.data?.HOL?.position === 3,
+                points:
+                  element?.data?.HOL?.position > 3 &&
+                  element?.data?.BRN?.position <= 10,
+                tenth: element?.data?.HOL?.position === 10,
+                'no-points': element?.data?.HOL?.position > 10,
+                dnf: element?.data?.HOL?.dnf === true,
+                dsq: element?.data?.HOL?.dsq === true,
+                'fastest-lap': element?.data?.HOL?.fastestLap === true
+              }"
+            >
+              {{ element?.data?.HOL?.position }}
+            </span>
+          </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
         <ng-container matColumnDef="esp">
-          <th mat-header-cell *matHeaderCellDef style="text-align: center;"><img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/esp.png"> <br>
-            ESP </th>
-          <td mat-cell *matCellDef="let element" style="text-align: center;"> <span [ngClass]="{
-            'first': element?.data?.ESP?.position === 1,
-            'second': element?.data?.ESP?.position === 2,
-            'third': element?.data?.ESP?.position === 3,
-            'points': element?.data?.ESP?.position > 3 && element?.data?.ESP?.position <= 10,
-            'tenth': element?.data?.ESP?.position === 10,
-            'no-points': element?.data?.ESP?.position > 10,
-            'dnf': element?.data?.ESP?.dnf === true,
-            'dsq': element?.data?.ESP?.dsq === true,
-            'fastest-lap': element?.data?.ESP?.fastestLap === true
-          }">
-            {{element?.data?.ESP?.position}}
-          </span> </td>
+          <th
+            class="gp"
+            mat-header-cell
+            *matHeaderCellDef
+            [routerLink]="['/schedule/spain']"
+            style="text-align: center;"
+          >
+            <img
+              src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/esp.png"
+            />
+            <br />
+            <span style="border-bottom: 1px dotted">ESP</span>
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+            <span
+              [ngClass]="{
+                first: element?.data?.ESP?.position === 1,
+                second: element?.data?.ESP?.position === 2,
+                third: element?.data?.ESP?.position === 3,
+                points:
+                  element?.data?.ESP?.position > 3 &&
+                  element?.data?.ESP?.position <= 10,
+                tenth: element?.data?.ESP?.position === 10,
+                'no-points': element?.data?.ESP?.position > 10,
+                dnf: element?.data?.ESP?.dnf === true,
+                dsq: element?.data?.ESP?.dsq === true,
+                'fastest-lap': element?.data?.ESP?.fastestLap === true
+              }"
+            >
+              {{ element?.data?.ESP?.position }}
+            </span>
+          </td>
         </ng-container>
-      
-          <!-- Symbol Column -->
-          <ng-container matColumnDef="chn">
-            <th mat-header-cell *matHeaderCellDef style="text-align: center;"> <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/chn.png"> <br>
-              CHN </th>
-            <td mat-cell *matCellDef="let element" style="text-align: center;"> <span [ngClass]="{
-              'first': element?.data?.CHN?.position === 1,
-              'second': element?.data?.CHN?.position === 2,
-              'third': element?.data?.CHN?.position === 3,
-              'points': element?.data?.CHN?.position > 3 && element?.data?.CHN?.position <= 10,
-              'tenth': element?.data?.CHN?.position === 10,
-              'no-points': element?.data?.CHN?.position > 10,
-              'dnf': element?.data?.CHN?.dnf === true,
-              'dsq': element?.data?.CHN?.dsq === true,
-              'fastest-lap': element?.data?.CHN?.fastestLap === true
-            }">
-              {{element?.data?.CHN?.position}}
-            </span> </td>
-          </ng-container>
-      
-              <!-- Symbol Column -->
-              <ng-container matColumnDef="bel">
-                <th mat-header-cell *matHeaderCellDef style="text-align: center;"><img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/bel.png"> <br>
-                  BEL </th>
-                <td mat-cell *matCellDef="let element" style="text-align: center;"> <span [ngClass]="{
-                  'first': element?.data?.BEL?.position === 1,
-                  'second': element?.data?.BEL?.position === 2,
-                  'third': element?.data?.BEL?.position === 3,
-                  'points': element?.data?.BEL?.position > 3 && element?.data?.BEL?.position <= 10,
-                  'tenth': element?.data?.BEL?.position === 10,
-                  'no-points': element?.data?.BEL?.position > 10,
-                  'dnf': element?.data?.BEL?.dnf === true,
-                  'dsq': element?.data?.BEL?.dsq === true,
-                  'fastest-lap': element?.data?.BEL?.fastestLap === true
-                }">
-                  {{element?.data?.BEL?.position}}
-                </span> </td>
-              </ng-container>
-      
-                  <!-- Symbol Column -->
-          <ng-container matColumnDef="ita">
-            <th mat-header-cell *matHeaderCellDef style="text-align: center;"> <img src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/ita.png"> <br>
-              ITA </th>
-            <td mat-cell *matCellDef="let element" style="text-align: center;"> <span [ngClass]="{
-              'first': element?.data?.ITA?.position === 1,
-              'second': element?.data?.ITA?.position === 2,
-              'third': element?.data?.ITA?.position === 3,
-              'points': element?.data?.ITA?.position > 3 && element?.data?.ITA?.position <= 10,
-              'tenth': element?.data?.ITA?.position === 10,
-              'no-points': element?.data?.ITA?.position > 10,
-              'dnf': element?.data?.ITA?.dnf === true,
-              'dsq': element?.data?.ITA?.dsq === true,
-              'fastest-lap': element?.data?.ITA?.fastestLap === true
-            }">
-              {{element?.data?.ITA?.position}}
-            </span> </td>
-          </ng-container>
-      
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="mon">
+          <th
+            class="gp"
+            mat-header-cell
+            *matHeaderCellDef
+            [routerLink]="['/schedule/monaco']"
+            style="text-align: center;"
+          >
+            <img
+              src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/mon.png"
+            />
+            <br />
+            <span style="border-bottom: 1px dotted">MON</span>
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+            <span
+              [ngClass]="{
+                first: element?.data?.MON?.position === 1,
+                second: element?.data?.MON?.position === 2,
+                third: element?.data?.MON?.position === 3,
+                points:
+                  element?.data?.MON?.position > 3 &&
+                  element?.data?.MON?.position <= 10,
+                tenth: element?.data?.MON?.position === 10,
+                'no-points': element?.data?.MON?.position > 10,
+                dnf: element?.data?.MON?.dnf === true,
+                dsq: element?.data?.MON?.dsq === true,
+                'fastest-lap': element?.data?.MON?.fastestLap === true
+              }"
+            >
+              {{ element?.data?.MON?.position }}
+            </span>
+          </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="bel">
+          <th
+            class="gp"
+            mat-header-cell
+            *matHeaderCellDef
+            [routerLink]="['/schedule/belgium']"
+            style="text-align: center;"
+          >
+            <img
+              src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/bel.png"
+            />
+            <br />
+            <span style="border-bottom: 1px dotted">BEL</span>
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+            <span
+              [ngClass]="{
+                first: element?.data?.BEL?.position === 1,
+                second: element?.data?.BEL?.position === 2,
+                third: element?.data?.BEL?.position === 3,
+                points:
+                  element?.data?.BEL?.position > 3 &&
+                  element?.data?.BEL?.position <= 10,
+                tenth: element?.data?.BEL?.position === 10,
+                'no-points': element?.data?.BEL?.position > 10,
+                dnf: element?.data?.BEL?.dnf === true,
+                dsq: element?.data?.BEL?.dsq === true,
+                'fastest-lap': element?.data?.BEL?.fastestLap === true
+              }"
+            >
+              {{ element?.data?.BEL?.position }}
+            </span>
+          </td>
+        </ng-container>
+
+        <!-- Symbol Column -->
+        <ng-container matColumnDef="ita">
+          <th
+            class="gp"
+            mat-header-cell
+            *matHeaderCellDef
+            [routerLink]="['/schedule/italy']"
+            style="text-align: center;"
+          >
+            <img
+              src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/ita.png"
+            />
+            <br />
+            <span style="border-bottom: 1px dotted">ITA</span>
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+            <span
+              [ngClass]="{
+                first: element?.data?.ITA?.position === 1,
+                second: element?.data?.ITA?.position === 2,
+                third: element?.data?.ITA?.position === 3,
+                points:
+                  element?.data?.ITA?.position > 3 &&
+                  element?.data?.ITA?.position <= 10,
+                tenth: element?.data?.ITA?.position === 10,
+                'no-points': element?.data?.ITA?.position > 10,
+                dnf: element?.data?.ITA?.dnf === true,
+                dsq: element?.data?.ITA?.dsq === true,
+                'fastest-lap': element?.data?.ITA?.fastestLap === true
+              }"
+            >
+              {{ element?.data?.ITA?.position }}
+            </span>
+          </td>
+        </ng-container>
+
         <tr mat-header-row *matHeaderRowDef="racesDisplayedColumns"></tr>
-        <tr mat-row *matRowDef="let row; columns: racesDisplayedColumns;"></tr>
+        <tr mat-row *matRowDef="let row; columns: racesDisplayedColumns"></tr>
       </table>
     </mat-tab>
   </mat-tab-group>
-
 </div>

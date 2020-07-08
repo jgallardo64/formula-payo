@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { DriverStandingsService } from 'src/app/shared/services/driver-standings.service';
 import { TeamsStadingsService } from 'src/app/shared/services/teams-stadings.service';
 import { NextgpService } from 'src/app/shared/services/nextgp.service';
+import { FormBuilder, FormGroup } from '@angular/forms';
 declare var $: any;
 
 @Component({
@@ -15,19 +16,169 @@ export class HomeComponent implements OnInit {
   nextGp;
   date;
 
+  testForm: FormGroup;
+
   driversStandingsDisplayedColumns: string[] = ['position', 'driver', 'points'];
   teamStandingsDisplayedColumns: string[] = ['position', 'team', 'points'];
 
   constructor(
+    private formBuilder: FormBuilder,
     private driverStandingsService: DriverStandingsService,
     private teamStandingsService: TeamsStadingsService,
     private nextGpService: NextgpService
   ) {}
 
   ngOnInit() {
+    // this.buildForm();
     this.getNextGp();
     this.getDriverStandings();
     this.getTeamStandings();
+  }
+
+  buildForm() {
+    this.testForm = this.formBuilder.group({
+      driver: [{value: null, disabled: null}],
+      points: [{value: 0, disabled: null}],
+      team: [{value: null, disabled: null}],
+      teamId: [{value: null, disabled: null}],
+      AUS: this.formBuilder.group({
+        position: [{value: '-', disabled: null}],
+        dnf: [{value: false, disabled: null}],
+        dsq: [{value: false, disabled: null}],
+        fastestLap: [{value: false, disabled: null}]
+      }),
+      BAR: this.formBuilder.group({
+        position: [{value: '-', disabled: null}],
+        dnf: [{value: false, disabled: null}],
+        dsq: [{value: false, disabled: null}],
+        fastestLap: [{value: false, disabled: null}]
+      }),
+      VTN: this.formBuilder.group({
+        position: [{value: '-', disabled: null}],
+        dnf: [{value: false, disabled: null}],
+        dsq: [{value: false, disabled: null}],
+        fastestLap: [{value: false, disabled: null}]
+      }),
+      CHN: this.formBuilder.group({
+        position: [{value: '-', disabled: null}],
+        dnf: [{value: false, disabled: null}],
+        dsq: [{value: false, disabled: null}],
+        fastestLap: [{value: false, disabled: null}]
+      }),
+      HOL: this.formBuilder.group({
+        position: [{value: '-', disabled: null}],
+        dnf: [{value: false, disabled: null}],
+        dsq: [{value: false, disabled: null}],
+        fastestLap: [{value: false, disabled: null}]
+      }),
+      MON: this.formBuilder.group({
+        position: [{value: '-', disabled: null}],
+        dnf: [{value: false, disabled: null}],
+        dsq: [{value: false, disabled: null}],
+        fastestLap: [{value: false, disabled: null}]
+      }),
+      AZE: this.formBuilder.group({
+        position: [{value: '-', disabled: null}],
+        dnf: [{value: false, disabled: null}],
+        dsq: [{value: false, disabled: null}],
+        fastestLap: [{value: false, disabled: null}]
+      }),
+      CAN: this.formBuilder.group({
+        position: [{value: '-', disabled: null}],
+        dnf: [{value: false, disabled: null}],
+        dsq: [{value: false, disabled: null}],
+        fastestLap: [{value: false, disabled: null}]
+      }),
+      FRA: this.formBuilder.group({
+        position: [{value: '-', disabled: null}],
+        dnf: [{value: false, disabled: null}],
+        dsq: [{value: false, disabled: null}],
+        fastestLap: [{value: false, disabled: null}]
+      }),
+      AUT: this.formBuilder.group({
+        position: [{value: '-', disabled: null}],
+        dnf: [{value: false, disabled: null}],
+        dsq: [{value: false, disabled: null}],
+        fastestLap: [{value: false, disabled: null}]
+      }),
+      HUN: this.formBuilder.group({
+        position: [{value: '-', disabled: null}],
+        dnf: [{value: false, disabled: null}],
+        dsq: [{value: false, disabled: null}],
+        fastestLap: [{value: false, disabled: null}]
+      }),
+      GBR: this.formBuilder.group({
+        position: [{value: '-', disabled: null}],
+        dnf: [{value: false, disabled: null}],
+        dsq: [{value: false, disabled: null}],
+        fastestLap: [{value: false, disabled: null}]
+      }),
+      ESP: this.formBuilder.group({
+        position: [{value: '-', disabled: null}],
+        dnf: [{value: false, disabled: null}],
+        dsq: [{value: false, disabled: null}],
+        fastestLap: [{value: false, disabled: null}]
+      }),
+      BEL: this.formBuilder.group({
+        position: [{value: '-', disabled: null}],
+        dnf: [{value: false, disabled: null}],
+        dsq: [{value: false, disabled: null}],
+        fastestLap: [{value: false, disabled: null}]
+      }),
+      ITA: this.formBuilder.group({
+        position: [{value: '-', disabled: null}],
+        dnf: [{value: false, disabled: null}],
+        dsq: [{value: false, disabled: null}],
+        fastestLap: [{value: false, disabled: null}]
+      }),
+      SIN: this.formBuilder.group({
+        position: [{value: '-', disabled: null}],
+        dnf: [{value: false, disabled: null}],
+        dsq: [{value: false, disabled: null}],
+        fastestLap: [{value: false, disabled: null}]
+      }),
+      RUS: this.formBuilder.group({
+        position: [{value: '-', disabled: null}],
+        dnf: [{value: false, disabled: null}],
+        dsq: [{value: false, disabled: null}],
+        fastestLap: [{value: false, disabled: null}]
+      }),
+      JAP: this.formBuilder.group({
+        position: [{value: '-', disabled: null}],
+        dnf: [{value: false, disabled: null}],
+        dsq: [{value: false, disabled: null}],
+        fastestLap: [{value: false, disabled: null}]
+      }),
+      USA: this.formBuilder.group({
+        position: [{value: '-', disabled: null}],
+        dnf: [{value: false, disabled: null}],
+        dsq: [{value: false, disabled: null}],
+        fastestLap: [{value: false, disabled: null}]
+      }),
+      MEX: this.formBuilder.group({
+        position: [{value: '-', disabled: null}],
+        dnf: [{value: false, disabled: null}],
+        dsq: [{value: false, disabled: null}],
+        fastestLap: [{value: false, disabled: null}]
+      }),
+      BRA: this.formBuilder.group({
+        position: [{value: '-', disabled: null}],
+        dnf: [{value: false, disabled: null}],
+        dsq: [{value: false, disabled: null}],
+        fastestLap: [{value: false, disabled: null}]
+      }),
+      ABU: this.formBuilder.group({
+        position: [{value: '-', disabled: null}],
+        dnf: [{value: false, disabled: null}],
+        dsq: [{value: false, disabled: null}],
+        fastestLap: [{value: false, disabled: null}]
+      })
+    });
+  }
+
+  sendForm(values) {
+    this.driverStandingsService
+    .create(values);
   }
 
   getCountdown(date) {
