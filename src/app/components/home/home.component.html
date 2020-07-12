@@ -11,7 +11,7 @@
       <div class="mb-4">
         <h4>Próximo Gran Premio</h4>
         <mat-card class="gp-card" [routerLink]="['/schedule/' + nextGp?.id]">
-          <div class="{{ nextGp?.id }}">
+          <div class="{{ nextGp?.id }} next-gp">
             <p class="cal-country">
               {{ nextGp?.data?.name
               }}<span class="cal-title-date">{{ nextGp?.data?.date }}</span>

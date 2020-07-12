@@ -1,5 +1,6 @@
-h4, h5 {
-    font-family: 'customFont';
+h4,
+h5 {
+    font-family: "customFont";
 }
 
 h5 {
@@ -26,23 +27,23 @@ table.mat-table {
     .position {
         display: block;
         font-size: 32px;
-        font-family: 'customFont-bold';
+        font-family: "customFont-bold";
     }
 
     .driver-name {
         text-align: right;
         text-transform: uppercase;
         display: block;
-        font-family: 'customFont';
+        font-family: "customFont";
         font-size: 13px;
-        letter-spacing: .2px;
+        letter-spacing: 0.2px;
     }
 
     .team {
-        font-family: 'customFont';
+        font-family: "customFont";
         color: #67676d;
         font-size: 11px;
-        letter-spacing: .5px;
+        letter-spacing: 0.5px;
         font-weight: 400;
         margin-bottom: 10px;
     }
@@ -59,7 +60,7 @@ table.mat-table {
 }
 
 .countdown {
-    font-family: 'customFont';
+    font-family: "customFont";
     margin-top: 15px;
     padding: 15px;
     background-color: #333;
@@ -80,7 +81,7 @@ table.mat-table {
 .next-gp {
     margin-top: 1px;
     font-size: 16px;
-    font-family: 'customFont';
+    font-family: "customFont";
     color: #111;
     min-height: 40px;
     height: auto;
@@ -91,18 +92,18 @@ table.mat-table {
 
 .mat-card {
     padding: 0;
-    box-shadow: 0 0px 20px -1px rgba(0,0,0,.2), 0 1px 1px 0 rgba(0,0,0,.14), 0 1px 3px 0 rgba(0,0,0,.12);
+    box-shadow: 0 0px 20px -1px rgba(0, 0, 0, 0.2), 0 1px 1px 0 rgba(0, 0, 0, 0.14), 0 1px 3px 0 rgba(0, 0, 0, 0.12);
 }
 
-.calendar-gp, .mat-card:active {
+.calendar-gp,
+.mat-card:active {
     outline: none;
 }
 
-
 .cal-country {
     font-size: 18px;
-    font-family: 'customFont';
-    color: #FFF;
+    font-family: "customFont";
+    color: #fff;
     margin-left: 50px;
     text-transform: uppercase;
     position: absolute;
@@ -110,15 +111,15 @@ table.mat-table {
     z-index: 10;
 
     .cal-title-date {
-        color: #BBB;
+        color: #bbb;
         margin-left: 5px;
     }
 }
 
 .cal-title {
     font-size: 30px;
-    font-family: 'customFont-bold';
-    color: #FFB713;
+    font-family: "customFont-bold";
+    color: #ffb713;
     margin-left: 50px;
     text-transform: uppercase;
     position: absolute;
@@ -126,8 +127,32 @@ table.mat-table {
     z-index: 9;
 }
 
-.calendar-gp, .gp-card:hover {
+.calendar-gp,
+.gp-card:hover {
     cursor: pointer;
+}
+
+.next-gp::after {
+    content: " ";
+    height: 150px;
+    position: absolute;
+    left: 0px;
+    right: 0px;
+    bottom: 0px;
+    background: rgba(0, 0, 0, 0);
+    background: -moz-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.9) 100%);
+    background: -webkit-gradient(
+        left top,
+        left bottom,
+        color-stop(0%, rgba(0, 0, 0, 0)),
+        color-stop(35%, rgba(0, 0, 0, 0)),
+        color-stop(100%, rgba(0, 0, 0, 0.9))
+    );
+    background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.9) 100%);
+    background: -o-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.9) 100%);
+    background: -ms-linear-gradient(top, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.9) 100%);
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 35%, rgba(0, 0, 0, 0.9) 100%);
+    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#000000', endColorstr='#000000', GradientType=0 );
 }
 
 .australia {
@@ -271,7 +296,7 @@ table.mat-table {
 @media (max-width: 767px) {
     .cal-title {
         font-size: 30px;
-        color: #FFB713;
+        color: #ffb713;
         margin-left: 10px;
     }
 
