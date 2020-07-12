@@ -15,8 +15,8 @@ export class GrandPrixComponent implements OnInit {
   driverStandings = [];
   teamStandings = [];
 
-  qualifyingDisplayedColumns: string[] = ['position', 'driver', 'team', 'tyre', 'time'];
-  raceDisplayedColumns: string[] = ['position', 'driver', 'team', 'time', 'points'];
+  qualifyingDisplayedColumns: string[] = ['position', 'driver', 'car', 'team', 'tyre', 'time', 'difference'];
+  raceDisplayedColumns: string[] = ['position', 'driver', 'car', 'team', 'time', 'points'];
 
   constructor(
     private activatedRoute: ActivatedRoute,

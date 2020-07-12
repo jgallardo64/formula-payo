@@ -20,7 +20,7 @@
                 <img [src]="'../../../assets/images/grand-prix-thumbnails/' + item?.id + '.jpg'" width="
                 100%">
             </div>
-            <div class="data-calendar-info">
+            <div class="data-calendar-info" [routerLink]="[item?.id]">
                 <p class="data-calendar-first-info">{{item?.data?.country}} <span class="data-calendar-second-info">{{item?.data?.date}}</span></p>
                 <p class="data-calendar-main-name">{{item?.data?.circuit}}</p>
                 <p class="data-calendar-specs-info">{{item?.data?.length}} <span class="data-calendar-specs-type-info">METROS</span>{{item?.data?.laps}} <span class="data-calendar-specs-type-info">VUELTAS</span></p>

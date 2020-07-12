@@ -225,6 +225,7 @@ export class HomeComponent implements OnInit {
           id: element.payload.doc.id,
           data: element.payload.doc.data(),
         };
+        console.log(this.nextGp);
       });
       this.getCountdown(this.nextGp.data.day);
     });

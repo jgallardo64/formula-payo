@@ -75,6 +75,10 @@
     height: 200px;
 }
 
+div:focus, img:focus {
+    outline: none !important;
+}
+
 
 .cal-country {
     font-size: 18px;

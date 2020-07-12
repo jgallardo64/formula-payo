@@ -41,8 +41,8 @@
     padding-left: 10px;
     margin-right: auto;
     margin-left: auto;
-    width: 992px;
-    min-width: 320px;
+    // width: 992px;
+    // min-width: 320px;
 }
 
 .row {
@@ -188,6 +188,10 @@ table, thead, th, tbody, td {
     text-transform: uppercase;
     font-family: 'Titillium-Semibold';
     color: gray;
+}
+
+.car-img {
+    width: 90px;
 }
 
 .mat-row:nth-child(odd){
