@@ -25,11 +25,10 @@
         <img class="mr-1" src="../../../assets/images/flag.svg" width="24px" />
         Circuito
       </ng-template>
-      <div class="gp-card p-2" [routerLink]="['/schedule/austria']">
+      <div class="gp-card p-2">
         <h2 class="next-gp">Circuito de {{ grandPrix?.circuit }}</h2>
-        <img
-          [src]="'../../../assets/images/circuit-background/' + gpId + '.jpg'"
-          width="100%"
+        <img class="next-gp-img"
+          [src]="'../../../assets/images/circuits/' + gpId + '.jpg'"
         />
         <div class="separator">
           EL CIRCUITO

@@ -66,6 +66,12 @@
     margin-bottom: 0;
 }
 
+.next-gp-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
 .gp-card:focus {
     outline: none !important;
 }
