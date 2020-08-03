@@ -1,203 +1,34 @@
-<!-- <form [formGroup]="testForm">
-  Piloto <input formControlName="driver"><br>
-  Equipo <input formControlName="team"> <br>
-  ID Equipo <input formControlName="teamId"> <br>
-  <button type="submit" (click)="sendForm(testForm.value)">Enviar</button>
-</form> -->
-
-<div class="container">
-  <div class="row">
-    <div class="col-12 col-md-8">
-      <div class="mb-4">
-        <h4>Próximo Gran Premio</h4>
-        <mat-card class="gp-card" [routerLink]="['/schedule/' + nextGp?.id]">
-          <div class="{{ nextGp?.id }} next-gp">
-            <p class="cal-country">
-              {{ nextGp?.data?.name
-              }}<span class="cal-title-date">{{ nextGp?.data?.date }}</span>
-            </p>
-            <p class="cal-title">{{ nextGp?.data?.circuit }}</p>
-          </div>
-        </mat-card>
-        <div class="countdown">
-          <div class="row">
-            <div class="col-12 col-md-2">
-              Tiempo restante
-            </div>
-            <div class="col-12 col-md-10">
-              <span id="days" class="number"></span>
-              <span class="text">días</span>
-              <span id="hours" class="number"></span>
-              <span class="text">horas</span>
-              <span id="minutes" class="number"></span>
-              <span class="text">minutos</span>
-              <span id="seconds" class="number"></span>
-              <span class="text">segundos</span>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="last-podium">
-        <h4>Podio 2019</h4>
-        <div class="row">
-          <div class="col-12 col-md-6 col-lg-4 mb-4">
-            <div class="podium-driver">
-              <div class="driver">
-                <div class="position">
-                  1
-                </div>
-                <div class="driver-name">
-                  {{nextGp?.data?.lastPodium?.first?.driver}}
-                </div>
-              </div>
-              <div class="team">{{nextGp?.data?.lastPodium?.first?.team}}</div>
-              <div class="background-pattern">
-                <img [src]="'../../../assets/images/cars-full/' + nextGp?.data?.lastPodium.first.teamId +'.png'" width="100%">
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4 mb-4">
-            <div class="podium-driver">
-              <div class="driver">
-                <div class="position">
-                  2
-                </div>
-                <div class="driver-name">
-                  {{nextGp?.data?.lastPodium?.second?.driver}}
-                </div>
-              </div>
-              <div class="team">{{nextGp?.data?.lastPodium?.second?.team}}</div>
-              <div class="background-pattern">
-                <img [src]="'../../../assets/images/cars-full/' + nextGp?.data?.lastPodium.second.teamId +'.png'" width="100%">
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 col-lg-4 mb-4">
-            <div class="podium-driver">
-              <div class="driver">
-                <div class="position">
-                  3
-                </div>
-                <div class="driver-name">
-                  {{nextGp?.data?.lastPodium?.third?.driver}}
-                </div>
-              </div>
-              <div class="team">{{nextGp?.data?.lastPodium?.third?.team}}</div>
-              <div class="background-pattern">
-                <img [src]="'../../../assets/images/cars-full/' + nextGp?.data?.lastPodium.third.teamId +'.png'" width="100%">
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="col-12 col-md-4 mb-4">
-      <h5 style="margin-bottom: 16px;">Clasificación de pilotos</h5>
-      <table
-        mat-table
-        [dataSource]="driverStandings"
-        class="mat-elevation-z8"
-        style="margin-bottom: 30px;"
-      >
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef style="text-align: center;">
-            POS
-          </th>
-          <td
-            mat-cell
-            *matCellDef="let element; index as i"
-            style="text-align: center;"
-          >
-            {{ i + 1 }}
-          </td>
-        </ng-container>
-
-        <!-- Driver Column -->
-        <ng-container matColumnDef="driver">
-          <th mat-header-cell *matHeaderCellDef style="text-align: center;">
-            PILOTO
-          </th>
-          <td
-            class="driver-name"
-            mat-cell
-            *matCellDef="let element"
-            style="text-align: center;"
-          >
-            {{ element?.data?.driver }}
-          </td>
-        </ng-container>
-
-        <!-- Points Column -->
-        <ng-container matColumnDef="points">
-          <th mat-header-cell *matHeaderCellDef style="text-align: center;">
-            PUNTOS
-          </th>
-          <td mat-cell *matCellDef="let element" style="text-align: center;">
-            {{ element?.data?.points }}
-          </td>
-        </ng-container>
-
-        <tr
-          mat-header-row
-          *matHeaderRowDef="driversStandingsDisplayedColumns"
-        ></tr>
-        <tr
-          mat-row
-          *matRowDef="let row; columns: driversStandingsDisplayedColumns"
-        ></tr>
-      </table>
-
-      <h5 style="margin-bottom: 16px;">Clasificación de constructores</h5>
-      <table mat-table [dataSource]="teamStandings" class="mat-elevation-z8">
-        <!-- Position Column -->
-        <ng-container matColumnDef="position">
-          <th mat-header-cell *matHeaderCellDef style="text-align: center;">
-            POS
-          </th>
-          <td
-            mat-cell
-            *matCellDef="let element; index as i"
-            style="text-align: center;"
-          >
-            {{ i + 1 }}
-          </td>
-        </ng-container>
-
-        <!-- Driver Column -->
-        <ng-container matColumnDef="team">
-          <th mat-header-cell *matHeaderCellDef style="text-align: center;">
-            EQUIPO
-          </th>
-          <td
-            class="driver-name"
-            mat-cell
-            *matCellDef="let element"
-            style="text-align: center;"
-          >
-            {{ element?.data?.team }}
-          </td>
-        </ng-container>
-
-        <!-- Points Column -->
-        <ng-container matColumnDef="points">
-          <th mat-header-cell *matHeaderCellDef style="text-align: center;">
-            PUNTOS
-          </th>
-          <td mat-cell *matCellDef="let element" style="text-align: center;">
-            {{ element?.data?.points }}
-          </td>
-        </ng-container>
-
-        <tr
-          mat-header-row
-          *matHeaderRowDef="teamStandingsDisplayedColumns"
-        ></tr>
-        <tr
-          mat-row
-          *matRowDef="let row; columns: teamStandingsDisplayedColumns"
-        ></tr>
-      </table>
+<div [formGroup]="testForm">
+  <h3>Clasificación</h3>
+  <div
+    formArrayName="qualifying"
+    *ngFor="let item of testForm.get('qualifying').controls; let i = index"
+  >
+    <div [formGroupName]="i">
+      <input formControlName="driver" placeholder="Piloto" />
+      <input formControlName="team" placeholder="Equipo" />
+      <input formControlName="teamId" placeholder="ID Equipo" />
+      <input formControlName="tyre" placeholder="Neumático" />
+      <input formControlName="time" placeholder="Tiempo" />
+      <input formControlName="difference" placeholder="Diferencia" />
     </div>
   </div>
+  <button (click)="addQualyDriver()">Añadir piloto qualy</button>
+
+  <h3>Carrera</h3>
+  <div
+    formArrayName="race"
+    *ngFor="let item of testForm.get('race').controls; let i = index"
+  >
+    <div [formGroupName]="i">
+      <input formControlName="driver" placeholder="Piloto" />
+      <input formControlName="team" placeholder="Equipo" />
+      <input formControlName="teamId" placeholder="ID Equipo" />
+      <input formControlName="time" placeholder="Tiempo" />
+      <input formControlName="points" placeholder="Puntos" />
+    </div>
+  </div>
+  <button (click)="addRaceDriver()">Añadir piloto carrera</button>
 </div>
+<br />
+<button (click)="sendForm(testForm.value)">Enviar</button>

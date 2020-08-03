@@ -23,6 +23,6 @@ export class GrandPrixesService {
   }
 
   update(grandPrixId, data: any) {
-    return this.firestore.collection('grand-prixes').doc(grandPrixId).set(data);
+    return this.firestore.collection('grand-prixes').doc(grandPrixId).update(data);
   }
 }
