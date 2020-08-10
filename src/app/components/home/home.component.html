@@ -6,9 +6,15 @@
   >
     <div [formGroupName]="i">
       <input formControlName="driver" placeholder="Piloto" />
-      <input formControlName="team" placeholder="Equipo" />
-      <input formControlName="teamId" placeholder="ID Equipo" />
-      <input formControlName="tyre" placeholder="Neumático" />
+      <select formControlName="team">
+        <option *ngFor="let team of teamsList" [value]="team.teamName">{{team.teamName}}</option>
+      </select>
+      <select formControlName="teamId">
+        <option *ngFor="let team of teamsList" [value]="team.teamId">{{team.teamName}}</option>
+      </select>
+      <select formControlName="tyre">
+        <option *ngFor="let tyre of tyres" [value]="tyre">{{tyre}}</option>
+      </select>
       <input formControlName="time" placeholder="Tiempo" />
       <input formControlName="difference" placeholder="Diferencia" />
     </div>
@@ -22,8 +28,12 @@
   >
     <div [formGroupName]="i">
       <input formControlName="driver" placeholder="Piloto" />
-      <input formControlName="team" placeholder="Equipo" />
-      <input formControlName="teamId" placeholder="ID Equipo" />
+      <select formControlName="team">
+        <option *ngFor="let team of teamsList" [value]="team.teamName">{{team.teamName}}</option>
+      </select>
+      <select formControlName="teamId">
+        <option *ngFor="let team of teamsList" [value]="team.teamId">{{team.teamName}}</option>
+      </select>
       <input formControlName="time" placeholder="Tiempo" />
       <input formControlName="points" placeholder="Puntos" />
     </div>

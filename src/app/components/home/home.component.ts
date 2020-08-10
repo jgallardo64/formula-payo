@@ -16,6 +16,21 @@ export class HomeComponent implements OnInit {
   qualifying: FormArray;
   race: FormArray;
 
+  teamsList = [
+    { teamName: 'Ferrari', teamId: 'ferrari' },
+    { teamName: 'McLaren', teamId: 'mclaren' },
+    { teamName: 'Red Bull Racing', teamId: 'red-bull' },
+    { teamName: 'Haas F1 Team', teamId: 'haas' },
+    { teamName: 'Mercedes', teamId: 'mercedes' },
+    { teamName: 'Alfa Romeo Racing', teamId: 'alfa-romeo' },
+    { teamName: 'AlphaTauri', teamId: 'alpha-tauri' },
+    { teamName: 'Racing Point', teamId: 'racing-point' },
+    { teamName: 'Williams', teamId: 'williams' },
+    { teamName: 'Renault', teamId: 'renault' }
+  ];
+
+  tyres = ['soft', 'medium', 'hard', 'intermediate', 'wet'];
+
   constructor(
     private formBuilder: FormBuilder,
     private grandPrixService: GrandPrixesService
@@ -60,6 +75,7 @@ export class HomeComponent implements OnInit {
   }
 
   sendForm(values) {
-    this.grandPrixService.update('great-britain', values);
+    console.log(values);
+    // this.grandPrixService.update('great-britain', values);
   }
 }
