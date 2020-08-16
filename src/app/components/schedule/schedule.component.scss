@@ -276,6 +276,13 @@ div:focus, img:focus {
     background-position-y: center;
 }
 
+.netherlands {
+    background: url(../../../assets/images/circuits/netherlands.jpg);
+    height: 200px;
+    background-size: cover;
+    background-position-y: center;
+}
+
 @media (max-width: 767px) {
     .cal-title {
         font-size: 30px;
