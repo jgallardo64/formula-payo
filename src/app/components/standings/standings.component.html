@@ -474,6 +474,42 @@
           </td>
         </ng-container>
 
+        <!-- VIE Column -->
+        <ng-container matColumnDef="vie">
+          <th
+            class="gp"
+            mat-header-cell
+            *matHeaderCellDef
+            [routerLink]="['/schedule/vietnam']"
+            style="text-align: center;"
+          >
+            <img
+              src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/vie.png"
+            />
+            <br />
+            <span style="border-bottom: 1px dotted">VIE</span>
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+            <span
+              [ngClass]="{
+                first: element?.data?.VIE?.position === 1,
+                second: element?.data?.VIE?.position === 2,
+                third: element?.data?.VIE?.position === 3,
+                points:
+                  element?.data?.VIE?.position > 3 &&
+                  element?.data?.VIE?.position <= 10,
+                tenth: element?.data?.ITA?.position === 10,
+                'no-points': element?.data?.VIE?.position > 10,
+                dnf: element?.data?.VIE?.dnf === true,
+                dsq: element?.data?.VIE?.dsq === true,
+                'fastest-lap': element?.data?.VIE?.fastestLap === true
+              }"
+            >
+              {{ element?.data?.VIE?.position }}
+            </span>
+          </td>
+        </ng-container>
+
         <!-- MON Column -->
         <ng-container matColumnDef="mon">
           <th
@@ -725,6 +761,187 @@
             </span>
           </td>
         </ng-container>
+
+        <!-- MEX Column -->
+        <ng-container matColumnDef="mex">
+          <th
+            class="gp"
+            mat-header-cell
+            *matHeaderCellDef
+            [routerLink]="['/schedule/mexico']"
+            style="text-align: center;"
+          >
+            <img
+              src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/mex.png"
+            />
+            <br />
+            <span style="border-bottom: 1px dotted">MEX</span>
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+            <span
+              [ngClass]="{
+                first: element?.data?.MEX?.position === 1,
+                second: element?.data?.MEX?.position === 2,
+                third: element?.data?.MEX?.position === 3,
+                points:
+                  element?.data?.MEX?.position > 3 &&
+                  element?.data?.MEX?.position <= 10,
+                tenth: element?.data?.MEX?.position === 10,
+                'no-points': element?.data?.MEX?.position > 10,
+                dnf: element?.data?.MEX?.dnf === true,
+                dsq: element?.data?.MEX?.dsq === true,
+                'fastest-lap': element?.data?.MEX?.fastestLap === true
+              }"
+            >
+              {{ element?.data?.MEX?.position }}
+            </span>
+          </td>
+        </ng-container>
+
+        <!-- USA Column -->
+        <ng-container matColumnDef="usa">
+          <th
+            class="gp"
+            mat-header-cell
+            *matHeaderCellDef
+            [routerLink]="['/schedule/usa']"
+            style="text-align: center;"
+          >
+            <img
+              src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/usa.png"
+            />
+            <br />
+            <span style="border-bottom: 1px dotted">USA</span>
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+            <span
+              [ngClass]="{
+                first: element?.data?.USA?.position === 1,
+                second: element?.data?.USA?.position === 2,
+                third: element?.data?.USA?.position === 3,
+                points:
+                  element?.data?.USA?.position > 3 &&
+                  element?.data?.USA?.position <= 10,
+                tenth: element?.data?.USA?.position === 10,
+                'no-points': element?.data?.USA?.position > 10,
+                dnf: element?.data?.USA?.dnf === true,
+                dsq: element?.data?.USA?.dsq === true,
+                'fastest-lap': element?.data?.USA?.fastestLap === true
+              }"
+            >
+              {{ element?.data?.USA?.position }}
+            </span>
+          </td>
+        </ng-container>
+
+        <!-- BRA Column -->
+        <ng-container matColumnDef="bra">
+          <th
+            class="gp"
+            mat-header-cell
+            *matHeaderCellDef
+            [routerLink]="['/schedule/brazil']"
+            style="text-align: center;"
+          >
+            <img
+              src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/bra.png"
+            />
+            <br />
+            <span style="border-bottom: 1px dotted">BRA</span>
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+            <span
+              [ngClass]="{
+                first: element?.data?.BRA?.position === 1,
+                second: element?.data?.BRA?.position === 2,
+                third: element?.data?.BRA?.position === 3,
+                points:
+                  element?.data?.BRA?.position > 3 &&
+                  element?.data?.BRA?.position <= 10,
+                tenth: element?.data?.BRA?.position === 10,
+                'no-points': element?.data?.BRA?.position > 10,
+                dnf: element?.data?.BRA?.dnf === true,
+                dsq: element?.data?.BRA?.dsq === true,
+                'fastest-lap': element?.data?.BRA?.fastestLap === true
+              }"
+            >
+              {{ element?.data?.BRA?.position }}
+            </span>
+          </td>
+        </ng-container>
+
+        <!-- BAH Column -->
+        <ng-container matColumnDef="bah">
+          <th
+            class="gp"
+            mat-header-cell
+            *matHeaderCellDef
+            [routerLink]="['/schedule/bahrain']"
+            style="text-align: center;"
+          >
+            <img
+              src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/brn.png"
+            />
+            <br />
+            <span style="border-bottom: 1px dotted">BAH</span>
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+            <span
+              [ngClass]="{
+                first: element?.data?.BAH?.position === 1,
+                second: element?.data?.BAH?.position === 2,
+                third: element?.data?.BAH?.position === 3,
+                points:
+                  element?.data?.BAH?.position > 3 &&
+                  element?.data?.BAH?.position <= 10,
+                tenth: element?.data?.BAH?.position === 10,
+                'no-points': element?.data?.BAH?.position > 10,
+                dnf: element?.data?.BAH?.dnf === true,
+                dsq: element?.data?.BAH?.dsq === true,
+                'fastest-lap': element?.data?.BAH?.fastestLap === true
+              }"
+            >
+              {{ element?.data?.BAH?.position }}
+            </span>
+          </td>
+        </ng-container>
+
+        <!-- ABU Column -->
+        <ng-container matColumnDef="abu">
+          <th
+            class="gp"
+            mat-header-cell
+            *matHeaderCellDef
+            [routerLink]="['/schedule/abu-dhabi']"
+            style="text-align: center;"
+          >
+            <img
+              src="https://as01.epimg.net/img/carrusel/escudos/banderas/21_24/uae.png"
+            />
+            <br />
+            <span style="border-bottom: 1px dotted">ABU</span>
+          </th>
+          <td mat-cell *matCellDef="let element" style="text-align: center;">
+            <span
+              [ngClass]="{
+                first: element?.data?.ABU?.position === 1,
+                second: element?.data?.ABU?.position === 2,
+                third: element?.data?.ABU?.position === 3,
+                points:
+                  element?.data?.ABU?.position > 3 &&
+                  element?.data?.ABU?.position <= 10,
+                tenth: element?.data?.ABU?.position === 10,
+                'no-points': element?.data?.ABU?.position > 10,
+                dnf: element?.data?.ABU?.dnf === true,
+                dsq: element?.data?.ABU?.dsq === true,
+                'fastest-lap': element?.data?.ABU?.fastestLap === true
+              }"
+            >
+              {{ element?.data?.ABU?.position }}
+            </span>
+          </td>
+        </ng-container>
+
         <tr mat-header-row *matHeaderRowDef="racesDisplayedColumns"></tr>
         <tr mat-row *matRowDef="let row; columns: racesDisplayedColumns"></tr>
       </table>

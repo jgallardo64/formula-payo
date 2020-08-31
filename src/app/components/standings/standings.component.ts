@@ -11,7 +11,7 @@ export class StandingsComponent implements OnInit {
 
   driversStandingsDisplayedColumns: string[] = ['position', 'driver', 'car', 'team', 'points'];
   teamStandingsDisplayedColumns: string[] = ['position', 'car', 'team', 'points'];
-  racesDisplayedColumns: string[] = ['position', 'driver', 'points' , 'aut', 'hun', 'aus', 'gbr', 'chn', 'esp', 'hol', 'bel', 'ita', 'mon', 'aze', 'rus', 'can', 'fra', 'sin', 'jap'];
+  racesDisplayedColumns: string[] = ['position', 'driver', 'points' , 'aut', 'hun', 'aus', 'gbr', 'chn', 'esp', 'hol', 'bel', 'ita', 'vie', 'mon', 'rus', 'aze', 'can', 'fra', 'sin', 'jap', 'mex', 'usa', 'bra', 'bah', 'abu'];
 
   driverStandings = [];
   teamStandings = [];
