@@ -75,6 +75,6 @@ export class HomeComponent implements OnInit {
   }
 
   sendForm(values) {
-    this.grandPrixService.update('netherlands', values);
+    this.grandPrixService.update('italy', values);
   }
 }
