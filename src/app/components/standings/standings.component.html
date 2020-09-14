@@ -491,22 +491,22 @@
           </th>
           <td mat-cell *matCellDef="let element" style="text-align: center;">
             <span
-              [ngClass]="{
-                first: element?.data?.VIE?.position === 1,
-                second: element?.data?.VIE?.position === 2,
-                third: element?.data?.VIE?.position === 3,
-                points:
-                  element?.data?.VIE?.position > 3 &&
-                  element?.data?.VIE?.position <= 10,
-                tenth: element?.data?.ITA?.position === 10,
-                'no-points': element?.data?.VIE?.position > 10,
-                dnf: element?.data?.VIE?.dnf === true,
-                dsq: element?.data?.VIE?.dsq === true,
-                'fastest-lap': element?.data?.VIE?.fastestLap === true
-              }"
-            >
-              {{ element?.data?.VIE?.position }}
-            </span>
+            [ngClass]="{
+              first: element?.data?.VIE?.position === 1,
+              second: element?.data?.VIE?.position === 2,
+              third: element?.data?.VIE?.position === 3,
+              points:
+                element?.data?.VIE?.position > 3 &&
+                element?.data?.VIE?.position <= 10,
+              tenth: element?.data?.VIE?.position === 10,
+              'no-points': element?.data?.VIE?.position > 10,
+              dnf: element?.data?.VIE?.dnf === true,
+              dsq: element?.data?.VIE?.dsq === true,
+              'fastest-lap': element?.data?.VIE?.fastestLap === true
+            }"
+          >
+            {{ element?.data?.VIE?.position }}
+          </span>
           </td>
         </ng-container>
 
