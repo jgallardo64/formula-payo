@@ -1,0 +1,52 @@
+<div class="col-6 offset-3">
+  <form [formGroup]="signUpForm">
+    <mat-form-field class="col-12">
+      <input matInput formControlName="steamName" placeholder="Nombre Steam" />
+    </mat-form-field>
+
+    <mat-form-field class="col-12">
+      <input matInput formControlName="email" placeholder="Email de contacto" />
+    </mat-form-field>
+
+    <div class="col-12 mt-3 mb-3">
+        <h4>¿Qué periférico utilizas para jugar?</h4>
+        <mat-radio-group formControlName="peripheral" aria-label="Periférico">
+            <mat-radio-button value="Volante" class="col-12">Volante</mat-radio-button>
+            <mat-radio-button value="Mando" class="col-12">Mando</mat-radio-button>
+            <mat-radio-button value="Teclado" class="col-12">Teclado</mat-radio-button>
+          </mat-radio-group>
+    </div>
+
+    <div class="col-12 mt-3">
+        <h4>Disponibilidad horaria para fines de semana (marca todas las que puedas)</h4>
+        <div *ngFor="let schedule of scheduleList; let i = index">
+            <mat-checkbox style="padding-left: 15px;" (change)="onChangeSchedule($event)" [value]="schedule">
+                {{schedule}}
+            </mat-checkbox>
+
+        </div>
+    </div>
+
+    <div class="col-12 mt-3">
+        <h4>Preferencia duración de la clasificación (marca todas las que quieras)</h4>
+        <div *ngFor="let qualifying of qualifyingList; let i = index">
+            <mat-checkbox style="padding-left: 15px;" (change)="onChangeQualifying($event)" [value]="qualifying">
+                {{qualifying}}
+            </mat-checkbox>
+
+        </div>
+    </div>
+
+    <div class="col-12 mt-3">
+        <h4>Preferencia distancia de carrera (marca todas las que quieras)</h4>
+        <div *ngFor="let race of raceList; let i = index">
+            <mat-checkbox style="padding-left: 15px;" (change)="onChangeRace($event)" [value]="race">
+                {{race}}
+            </mat-checkbox>
+
+        </div>
+    </div>
+
+    <button class="btn" (click)="submitForm(signUpForm.value)">Enviar</button>
+  </form>
+</div>

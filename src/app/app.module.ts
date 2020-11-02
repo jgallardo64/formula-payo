@@ -19,7 +19,10 @@ import {
   MatTableModule,
   MatSidenavModule,
   MatFormFieldModule,
-  MatSelectModule
+  MatSelectModule,
+  MatInputModule,
+  MatRadioModule,
+  MatCheckboxModule
 } from '@angular/material';
 import { GrandPrixComponent } from './components/grand-prix/grand-prix.component';
 
@@ -30,6 +33,7 @@ import { environment } from '../environments/environment';
 import { DriversTeamsComponent } from './components/drivers-teams/drivers-teams.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { CountdownModule, CountdownGlobalConfig } from 'ngx-countdown';
+import { SignupComponent } from './components/signup/signup.component';
 
 @NgModule({
   declarations: [
@@ -39,16 +43,21 @@ import { CountdownModule, CountdownGlobalConfig } from 'ngx-countdown';
     RegulationComponent,
     ScheduleComponent,
     GrandPrixComponent,
-    DriversTeamsComponent
+    DriversTeamsComponent,
+    SignupComponent
   ],
   imports: [
     BrowserModule,
     CountdownModule,
     ReactiveFormsModule,
+    MatInputModule,
+    MatFormFieldModule,
     MatToolbarModule,
     MatMenuModule,
     MatTableModule,
     MatFormFieldModule,
+    MatRadioModule,
+    MatCheckboxModule,
     MatSelectModule,
     MatIconModule,
     MatSidenavModule,

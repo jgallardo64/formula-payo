@@ -6,6 +6,7 @@ import { RegulationComponent } from './components/regulation/regulation.componen
 import { ScheduleComponent } from './components/schedule/schedule.component';
 import { GrandPrixComponent } from './components/grand-prix/grand-prix.component';
 import { DriversTeamsComponent } from './components/drivers-teams/drivers-teams.component';
+import { SignupComponent } from './components/signup/signup.component';
 
 
 const routes: Routes = [
@@ -37,6 +38,10 @@ const routes: Routes = [
   {
     path: 'schedule/:id',
     component: GrandPrixComponent
+  },
+  {
+    path: 'sign-up',
+    component: SignupComponent
   },
   {
     path: '**',
