@@ -16,6 +16,35 @@ export class StandingsComponent implements OnInit {
   driverStandings = [];
   teamStandings = [];
 
+  newDriver = {
+    AUT: {position: "DNS", dsq: false, dnf: false, fastestlap: false},
+    HUN: {fastestLap: false, dsq: false, position: "DNS", dnf: false},
+    AUS: {position: "DNS", dnf: false, dsq: false, fastestLap: false},
+    GBR: {dsq: false, fastestLap: false, position: "DNS", dnf: false},
+    CHN: {dnf: false, fastestlap: false, dsq: false, position: "DNS"},
+    ESP: {position: "DNS", dsq: false, dnf: false, fastestLap: false},
+    HOL: {position: "DNS", dsq: false, fastestLap: false, dnf: false},
+    BEL: {fastestLap: false, dnf: false, dsq: false, position: "DNS"},
+    ITA: {dsq: false, fastestLap: false, dnf: false, position: "DNS"},
+    VIE: {dsq: false, dnf: false, fastestLap: false, position: "DNS"},
+    MON: {dsq: false, dnf: false, position: "DNS", fastestLap: false},
+    RUS: {dsq: false, fastestLap: false, dnf: false, position: "DNS"},
+    AZE: {position: "DNS", fastestlap: false, dsq: false, dnf: false},
+    CAN: {dsq: false, dnf: false, fastestLap: false, position: "DNS"},
+    FRA: {position: "DNS", fastestLap: false, dnf: false, dsq: false},
+    SIN: {position: "DNS", dsq: false, dnf: false, fastestLap: false},
+    JAP: {fastestLap: false, position: "DNS", dnf: false, dsq: false},
+    MEX: {dnf: false, position: "-", fastestLap: false, dsq: false},
+    USA: {dnf: false, dsq: false, position: "-", fastestLap: false},
+    BRA: {fastestLap: false, position: "-", dsq: false, dnf: false},
+    BAH: {dsq: false, position: "-", fastestLap: false, dnf: false},
+    ABU: {fastestLap: false, position: "-", dnf: false, dsq: false},
+    driver: "",
+    points: 0,
+    team: "",
+    teamId: "",
+  };
+
   constructor(
     private driverStandingsService: DriverStandingsService,
     private teamStandingsService: TeamsStadingsService
@@ -24,6 +53,11 @@ export class StandingsComponent implements OnInit {
   ngOnInit() {
     this.getDriverStandings();
     this.getTeamStandings();
+  }
+
+  createDriver() {
+    this.driverStandingsService
+    .create(this.newDriver);
   }
 
   getDriverStandings() {
